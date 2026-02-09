@@ -29,9 +29,6 @@ public class PostProcessBuild {
 		//PlistDocument-------------
 		var infoPlist = new PlistDocument();
 		infoPlist.ReadFromFile(path + "/Info.plist");
-		infoPlist.root.SetString("NSUserTrackingUsageDescription", 
-			"Your data will be used to deliver personalized ads to you. App needs to access IDFA to analyze game data and restore player profile in case it is lost or broken.");
-		infoPlist.root.SetString("AppTrackingTransparency", "yes");
 		infoPlist.root.SetBoolean("ITSAppUsesNonExemptEncryption", false);
 
 		var exitsOnSuspendKey = "UIApplicationExitsOnSuspend";
@@ -53,7 +50,6 @@ public class PostProcessBuild {
 
 		var target = proj.GetUnityFrameworkTargetGuid();
 		proj.AddFrameworkToProject(target, "libz.tbd", false);
-		proj.AddFrameworkToProject(target, "AppTrackingTransparency.framework", false);
 
 		proj.SetBuildProperty(target, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
 
