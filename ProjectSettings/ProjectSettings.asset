@@ -168,7 +168,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: pixel.archer
     Standalone: com.DefaultCompany.2DProject
-    iPhone: com.chipshoy.Pixel-Archer
+    iPhone: com.chipshoy.PixelArcher
   buildNumber:
     Bratwurst: 0
     Standalone: 0
