@@ -9,7 +9,7 @@ PlayerSettings:
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
   defaultScreenOrientation: 0
-  targetDevice: 2
+  targetDevice: 1
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: chipshoy
@@ -168,7 +168,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: pixel.archer
     Standalone: com.DefaultCompany.2DProject
-    iPhone: com.chipshoy.PixelArcher
+    iPhone: com.chipshoy.Pixel-Archer
   buildNumber:
     Bratwurst: 0
     Standalone: 0
