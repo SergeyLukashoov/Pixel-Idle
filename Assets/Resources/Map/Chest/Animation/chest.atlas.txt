@@ -1,0 +1,13 @@
+chest.png
+size:512,128
+filter:Linear,Linear
+pma:true
+chest/top
+bounds:226,2,72,65
+chest/top_blue
+bounds:152,2,72,65
+chest/top_violet
+bounds:78,2,72,65
+chest/top unactive
+bounds:2,2,74,65
+offsets:0,1,74,66

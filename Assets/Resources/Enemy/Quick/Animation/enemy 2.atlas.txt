@@ -1,0 +1,21 @@
+enemy 2.png
+size:1024,256
+filter:Linear,Linear
+pma:true
+enemy 2/body
+bounds:2,2,258,84
+enemy 2/body_Dem
+bounds:2,88,258,84
+enemy 2/eye
+bounds:423,13,159,159
+enemy 2/eye_Dem
+bounds:262,13,159,159
+enemy 2/leg
+bounds:683,44,23,128
+enemy 2/leg_Dem
+bounds:658,44,23,128
+enemy 2/pupil
+bounds:584,78,72,72
+enemy 2/pupil_Dem
+bounds:582,4,72,72
+rotate:180

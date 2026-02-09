@@ -1,0 +1,7268 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cade46ed11b1f084ba3582ac9147bcd7, type: 3}
+  m_Name: GoogleTableDataContainer
+  m_EditorClassIdentifier: 
+  CharacterParameters:
+  - SkillId: Damage
+    BaseValue: 5
+    MaxValue: 0
+    ValueStep: 5
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 200
+      _level: 100000
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  - SkillId: ShotsPerSec
+    BaseValue: 1
+    MaxValue: 15
+    ValueStep: 0.1
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 140
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  - SkillId: Range
+    BaseValue: 5
+    MaxValue: 20
+    ValueStep: 0.1
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 1000
+    - _price: 200
+      _level: 10000
+    LockedOnStart: 1
+    ShowAfterTower: 2
+    UnlockPrice: 5000
+  - SkillId: AddDmgPerRange
+    BaseValue: 1
+    MaxValue: 25
+    ValueStep: 0.2
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 50
+      _level: 1000
+    LockedOnStart: 1
+    ShowAfterTower: 2
+    UnlockPrice: 5000
+  - SkillId: CritChance
+    BaseValue: 1
+    MaxValue: 90
+    ValueStep: 1
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 25
+      _level: 10
+    - _price: 100
+      _level: 20
+    - _price: 200
+      _level: 30
+    - _price: 500
+      _level: 40
+    - _price: 400
+      _level: 80
+    LockedOnStart: 0
+    ShowAfterTower: 1
+    UnlockPrice: 0
+  - SkillId: CritMult
+    BaseValue: 1.2
+    MaxValue: 10
+    ValueStep: 0.1
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 25
+      _level: 10
+    - _price: 100
+      _level: 20
+    - _price: 200
+      _level: 30
+    - _price: 500
+      _level: 40
+    - _price: 400
+      _level: 100
+    LockedOnStart: 0
+    ShowAfterTower: 1
+    UnlockPrice: 0
+  - SkillId: SuperCritChance
+    BaseValue: 1
+    MaxValue: 80
+    ValueStep: 1
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 25
+      _level: 10
+    - _price: 100
+      _level: 20
+    - _price: 200
+      _level: 30
+    - _price: 500
+      _level: 40
+    - _price: 400
+      _level: 80
+    LockedOnStart: 1
+    ShowAfterTower: 16
+    UnlockPrice: 100000
+  - SkillId: SuperCritMult
+    BaseValue: 2
+    MaxValue: 10
+    ValueStep: 0.1
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 25
+      _level: 10
+    - _price: 100
+      _level: 20
+    - _price: 200
+      _level: 30
+    - _price: 500
+      _level: 40
+    - _price: 400
+      _level: 100
+    LockedOnStart: 1
+    ShowAfterTower: 16
+    UnlockPrice: 100000
+  - SkillId: Health
+    BaseValue: 30
+    MaxValue: 0
+    ValueStep: 30
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 200
+      _level: 100000
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  - SkillId: HealthRegen
+    BaseValue: 1
+    MaxValue: 0
+    ValueStep: 0.5
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 200
+      _level: 100000
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  - SkillId: PhysicalResist
+    BaseValue: 0
+    MaxValue: 0
+    ValueStep: 2
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 20
+      _level: 10
+    - _price: 50
+      _level: 20
+    - _price: 100
+      _level: 30
+    - _price: 200
+      _level: 40
+    - _price: 400
+      _level: 100
+    LockedOnStart: 1
+    ShowAfterTower: 1
+    UnlockPrice: 5000
+  - SkillId: AbsoluteResist
+    BaseValue: 0
+    MaxValue: 50
+    ValueStep: 1
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 20
+      _level: 10
+    - _price: 50
+      _level: 20
+    - _price: 100
+      _level: 30
+    - _price: 200
+      _level: 40
+    - _price: 400
+      _level: 100
+    LockedOnStart: 1
+    ShowAfterTower: 16
+    UnlockPrice: 100000
+  - SkillId: CoreCurrencyMult
+    BaseValue: 1
+    MaxValue: 0
+    ValueStep: 0.02
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 200
+      _level: 100000
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  - SkillId: CoreCurrencyForWave
+    BaseValue: 10
+    MaxValue: 0
+    ValueStep: 2
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 200
+      _level: 100000
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  - SkillId: MetaCurrencyMult
+    BaseValue: 1
+    MaxValue: 0
+    ValueStep: 0.02
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 200
+      _level: 100000
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  - SkillId: MetaCurrencyForWave
+    BaseValue: 10
+    MaxValue: 0
+    ValueStep: 2
+    UpgradeInfos:
+    - _price: 5
+      _level: 5
+    - _price: 10
+      _level: 15
+    - _price: 25
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 200
+      _level: 100000
+    LockedOnStart: 0
+    ShowAfterTower: 0
+    UnlockPrice: 0
+  NPCParameters:
+  - NPCID: Common
+    AttackRange: 0
+    BaseHealth: 9
+    UpgradeHealthInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 20
+    - _price: 5
+      _level: 50
+    - _price: 15
+      _level: 150
+    - _price: 50
+      _level: 100000
+    BaseDamage: 3
+    UpgradeDamageInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 100
+    - _price: 5
+      _level: 200
+    - _price: 10
+      _level: 400
+    - _price: 25
+      _level: 100000
+    BaseSpeed: 4
+    SpeedInc: 0.03
+    SpeedMax: 8
+    BaseCoreCurrency: 1
+    CoreCurrencyInc: 0.1
+    BaseMetaCurrency: 1
+    MetaCurrencyInc: 0.1
+    TimeToAttack: 1
+  - NPCID: Quick
+    AttackRange: 0
+    BaseHealth: 12
+    UpgradeHealthInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 20
+    - _price: 5
+      _level: 50
+    - _price: 15
+      _level: 150
+    - _price: 50
+      _level: 100000
+    BaseDamage: 10
+    UpgradeDamageInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 100
+    - _price: 5
+      _level: 200
+    - _price: 10
+      _level: 400
+    - _price: 25
+      _level: 100000
+    BaseSpeed: 12
+    SpeedInc: 0.03
+    SpeedMax: 25
+    BaseCoreCurrency: 2
+    CoreCurrencyInc: 0.1
+    BaseMetaCurrency: 2
+    MetaCurrencyInc: 0.1
+    TimeToAttack: 1
+  - NPCID: Durable
+    AttackRange: 0
+    BaseHealth: 100
+    UpgradeHealthInfo:
+    - _price: 2
+      _level: 10
+    - _price: 5
+      _level: 20
+    - _price: 20
+      _level: 50
+    - _price: 100
+      _level: 150
+    - _price: 400
+      _level: 100000
+    BaseDamage: 15
+    UpgradeDamageInfo:
+    - _price: 2
+      _level: 10
+    - _price: 4
+      _level: 100
+    - _price: 10
+      _level: 200
+    - _price: 20
+      _level: 400
+    - _price: 50
+      _level: 100000
+    BaseSpeed: 2.5
+    SpeedInc: 0.02
+    SpeedMax: 6
+    BaseCoreCurrency: 2
+    CoreCurrencyInc: 0.1
+    BaseMetaCurrency: 5
+    MetaCurrencyInc: 0.1
+    TimeToAttack: 1
+  - NPCID: Boss
+    AttackRange: 0
+    BaseHealth: 2000
+    UpgradeHealthInfo:
+    - _price: 50
+      _level: 10
+    - _price: 100
+      _level: 20
+    - _price: 600
+      _level: 50
+    - _price: 2000
+      _level: 150
+    - _price: 4000
+      _level: 100000
+    BaseDamage: 40
+    UpgradeDamageInfo:
+    - _price: 4
+      _level: 10
+    - _price: 10
+      _level: 100
+    - _price: 20
+      _level: 200
+    - _price: 40
+      _level: 400
+    - _price: 100
+      _level: 100000
+    BaseSpeed: 3
+    SpeedInc: 0.03
+    SpeedMax: 6
+    BaseCoreCurrency: 100
+    CoreCurrencyInc: 2
+    BaseMetaCurrency: 100
+    MetaCurrencyInc: 2
+    TimeToAttack: 1
+  - NPCID: BossSimple
+    AttackRange: 0
+    BaseHealth: 300
+    UpgradeHealthInfo:
+    - _price: 20
+      _level: 10
+    - _price: 40
+      _level: 20
+    - _price: 60
+      _level: 30
+    - _price: 150
+      _level: 150
+    - _price: 4000
+      _level: 100000
+    BaseDamage: 20
+    UpgradeDamageInfo:
+    - _price: 2
+      _level: 10
+    - _price: 4
+      _level: 30
+    - _price: 10
+      _level: 200
+    - _price: 40
+      _level: 400
+    - _price: 100
+      _level: 100000
+    BaseSpeed: 2.5
+    SpeedInc: 0.03
+    SpeedMax: 6
+    BaseCoreCurrency: 100
+    CoreCurrencyInc: 2
+    BaseMetaCurrency: 100
+    MetaCurrencyInc: 2
+    TimeToAttack: 1
+  - NPCID: Range
+    AttackRange: 0
+    BaseHealth: 8
+    UpgradeHealthInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 20
+    - _price: 5
+      _level: 50
+    - _price: 15
+      _level: 150
+    - _price: 50
+      _level: 100000
+    BaseDamage: 12
+    UpgradeDamageInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 100
+    - _price: 5
+      _level: 200
+    - _price: 10
+      _level: 400
+    - _price: 25
+      _level: 100000
+    BaseSpeed: 3
+    SpeedInc: 0.03
+    SpeedMax: 6
+    BaseCoreCurrency: 2
+    CoreCurrencyInc: 0.1
+    BaseMetaCurrency: 2
+    MetaCurrencyInc: 0.1
+    TimeToAttack: 1
+  - NPCID: Explode
+    AttackRange: 0
+    BaseHealth: 6
+    UpgradeHealthInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 20
+    - _price: 5
+      _level: 50
+    - _price: 15
+      _level: 150
+    - _price: 50
+      _level: 100000
+    BaseDamage: 10
+    UpgradeDamageInfo:
+    - _price: 1
+      _level: 10
+    - _price: 2
+      _level: 100
+    - _price: 5
+      _level: 200
+    - _price: 10
+      _level: 400
+    - _price: 25
+      _level: 100000
+    BaseSpeed: 16
+    SpeedInc: 0.05
+    SpeedMax: 30
+    BaseCoreCurrency: 2
+    CoreCurrencyInc: 0.1
+    BaseMetaCurrency: 2
+    MetaCurrencyInc: 0.1
+    TimeToAttack: 1
+  WaveParametersTower1:
+  - WaveId: 1
+    TimeToSpawn: 1
+    DelayBeforeWave: 1
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 3
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 2
+    TimeToSpawn: 1
+    DelayBeforeWave: 1
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 3
+    TimeToSpawn: 1
+    DelayBeforeWave: 1
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 4
+    TimeToSpawn: 1
+    DelayBeforeWave: 2
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 5
+    TimeToSpawn: 1
+    DelayBeforeWave: 2
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 7
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 6
+    TimeToSpawn: 1
+    DelayBeforeWave: 2
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 7
+    TimeToSpawn: 0.3
+    DelayBeforeWave: 2
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 12
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 8
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 2
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 9
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 2
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 10
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 2
+    - _type: 2
+      _count: 2
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 11
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 12
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 2
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 13
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 8
+    - _type: 3
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 14
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 6
+    - _type: 3
+      _count: 6
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 15
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 7
+    - _type: 3
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 16
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 5
+    - _type: 3
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 17
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 6
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 18
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 3
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 7
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 19
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 6
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 20
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 1
+    - _type: 2
+      _count: 1
+    - _type: 3
+      _count: 1
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 21
+    TimeToSpawn: 0.3
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 14
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 22
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 3
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 23
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    - _type: 2
+      _count: 3
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 24
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 25
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 26
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 3
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 27
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 28
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 2
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 29
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 3
+    - _type: 2
+      _count: 3
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 30
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 2
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 31
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 32
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 33
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 6
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 34
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    - _type: 2
+      _count: 6
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 35
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 8
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 36
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 3
+    - _type: 2
+      _count: 8
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 37
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 8
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 38
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 1
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 39
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 5
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 40
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 5
+    - _type: 3
+      _count: 3
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  WaveParametersTower2:
+  - WaveId: 41
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 42
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 43
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 44
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 6
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 45
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 7
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 46
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 47
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 48
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 3
+    - _type: 2
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 49
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 10
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 50
+    TimeToSpawn: 1
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 1
+    - _type: 2
+      _count: 1
+    - _type: 3
+      _count: 1
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 51
+    TimeToSpawn: 0.3
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 8
+    - _type: 3
+      _count: 15
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 52
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 3
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 53
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    - _type: 2
+      _count: 3
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 54
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 4
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 55
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 56
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 3
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 57
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 58
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 2
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 59
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 3
+    - _type: 2
+      _count: 3
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 60
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 2
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 61
+    TimeToSpawn: 0.8
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 8
+    - _type: 3
+      _count: 12
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 62
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 4
+    - _type: 2
+      _count: 4
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 63
+    TimeToSpawn: 0.3
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 10
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 64
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    - _type: 2
+      _count: 6
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 65
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 8
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 5
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 66
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 3
+    - _type: 2
+      _count: 8
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 67
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 8
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 68
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 1
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 69
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 5
+    - _type: 3
+      _count: 9
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 70
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 5
+    - _type: 2
+      _count: 5
+    - _type: 3
+      _count: 3
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 71
+    TimeToSpawn: 0.7
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 10
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 6
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 72
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 10
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 73
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 12
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 74
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 12
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 10
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 75
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 12
+    - _type: 2
+      _count: 12
+    - _type: 3
+      _count: 12
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 76
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 10
+    - _type: 2
+      _count: 20
+    - _type: 3
+      _count: 8
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 77
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 8
+    - _type: 2
+      _count: 8
+    - _type: 3
+      _count: 14
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 78
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 10
+    - _type: 2
+      _count: 10
+    - _type: 3
+      _count: 10
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 79
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 10
+    - _type: 2
+      _count: 20
+    - _type: 3
+      _count: 10
+    EnemiesByPointsIds: []
+    PointsIds: 
+  - WaveId: 80
+    TimeToSpawn: 0.6
+    DelayBeforeWave: 3
+    NextWaveAfterDefeat: 1
+    EnemiesInfo:
+    - _type: 1
+      _count: 6
+    - _type: 2
+      _count: 6
+    - _type: 3
+      _count: 3
+    - _type: 6
+      _count: 1
+    EnemiesByPointsIds: []
+    PointsIds: 
+  WaveParametersByTerrain:
+  - TerrainId: 1
+    WaveDatas:
+    - WaveId: 81
+      TimeToSpawn: 1.5
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 82
+      TimeToSpawn: 1.3
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 83
+      TimeToSpawn: 0.9
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 84
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 85
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 16
+      - _type: 2
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 86
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 14
+      - _type: 2
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 87
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 88
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 89
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 9
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 90
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 4
+      - _type: 2
+        _count: 4
+      - _type: 3
+        _count: 2
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 91
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 92
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 11
+      - _type: 3
+        _count: 11
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 93
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 11
+      - _type: 3
+        _count: 13
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 94
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 14
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 95
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 16
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 96
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 16
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 97
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 98
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 99
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 100
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 6
+      - _type: 3
+        _count: 3
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 101
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 17
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 102
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 103
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 104
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 105
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 40
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 106
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 107
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 108
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 109
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 34
+      - _type: 3
+        _count: 34
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 110
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 5
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 111
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 112
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 113
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 114
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 115
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 116
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 117
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 118
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 119
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 120
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 6
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 121
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 122
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 123
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 124
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 125
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 126
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 127
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 128
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 129
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 130
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 8
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 131
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 132
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 133
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 134
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 135
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 136
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 137
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 138
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 139
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 140
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 8
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 141
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 13
+      - _type: 2
+        _count: 13
+      - _type: 3
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 142
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 22
+      - _type: 3
+        _count: 23
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 143
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 144
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 145
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 146
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 147
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 148
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 149
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 150
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 8
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 151
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 13
+      - _type: 2
+        _count: 13
+      - _type: 3
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 152
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 22
+      - _type: 3
+        _count: 23
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 153
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 154
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 155
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 35
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 156
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 157
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 158
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 159
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+  - TerrainId: 3
+    WaveDatas:
+    - WaveId: 1
+      TimeToSpawn: 1.5
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 2
+      TimeToSpawn: 1.3
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 3
+      TimeToSpawn: 0.9
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 4
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 5
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 14
+      - _type: 2
+        _count: 6
+      - _type: 7
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 6
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 7
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 7
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 7
+        _count: 7
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 8
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 6
+      - _type: 7
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 9
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 9
+      - _type: 2
+        _count: 9
+      - _type: 3
+        _count: 7
+      - _type: 7
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 10
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 3
+      - _type: 2
+        _count: 3
+      - _type: 3
+        _count: 2
+      - _type: 7
+        _count: 3
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 11
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 8
+      - _type: 7
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 12
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 9
+      - _type: 7
+        _count: 7
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 13
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 9
+      - _type: 3
+        _count: 9
+      - _type: 7
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 14
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 7
+      - _type: 3
+        _count: 12
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 15
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 13
+      - _type: 7
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 16
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 12
+      - _type: 7
+        _count: 11
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 17
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 18
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 16
+      - _type: 7
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 19
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 16
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 20
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 4
+      - _type: 2
+        _count: 4
+      - _type: 3
+        _count: 3
+      - _type: 7
+        _count: 3
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 21
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 22
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 17
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 23
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 24
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 25
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 26
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 27
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 45
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 28
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 36
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 29
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      - _type: 7
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 30
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 6
+      - _type: 3
+        _count: 5
+      - _type: 7
+        _count: 4
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 31
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 32
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 18
+      - _type: 7
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 33
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 34
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 35
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 36
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 37
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 38
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 39
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 40
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 6
+      - _type: 7
+        _count: 10
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 41
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 42
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 43
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 44
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 22
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 45
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 46
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 47
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 48
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 49
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 35
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 50
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 6
+      - _type: 3
+        _count: 6
+      - _type: 7
+        _count: 15
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 51
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 52
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 53
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 54
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 55
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 56
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 57
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 28
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 58
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 59
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 60
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 8
+      - _type: 7
+        _count: 14
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 61
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 62
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 63
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 64
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 65
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 66
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 67
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 28
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 68
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 69
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 70
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 7
+      - _type: 3
+        _count: 8
+      - _type: 7
+        _count: 12
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 71
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 72
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 73
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 74
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 75
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 7
+        _count: 35
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 76
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 77
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 22
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 78
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 79
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 7
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+  - TerrainId: 2
+    WaveDatas:
+    - WaveId: 1
+      TimeToSpawn: 1.5
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 2
+      TimeToSpawn: 1.3
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 3
+      TimeToSpawn: 0.9
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 4
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 5
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 16
+      - _type: 2
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 6
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 14
+      - _type: 2
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 7
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 8
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 9
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 9
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 10
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 4
+      - _type: 2
+        _count: 4
+      - _type: 3
+        _count: 2
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 11
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 12
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 11
+      - _type: 3
+        _count: 11
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 13
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 11
+      - _type: 3
+        _count: 13
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 14
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 14
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 15
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 16
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 16
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 16
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 17
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 18
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 19
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 16
+      - _type: 3
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 20
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 6
+      - _type: 3
+        _count: 3
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 21
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 17
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 22
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 23
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 24
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 25
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 40
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 26
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 27
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 28
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 29
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 34
+      - _type: 3
+        _count: 34
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 30
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 5
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 31
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 32
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 33
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 34
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 35
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 36
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 37
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 38
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 39
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 40
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 6
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 41
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 42
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 43
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 44
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 45
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 46
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 47
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 48
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 49
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 50
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 8
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 51
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 52
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 53
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 54
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 55
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 56
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 57
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 58
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 59
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 60
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 8
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 61
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 13
+      - _type: 2
+        _count: 13
+      - _type: 3
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 62
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 22
+      - _type: 3
+        _count: 23
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 63
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 64
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 65
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 66
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 67
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 68
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 69
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 70
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 8
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 71
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 13
+      - _type: 2
+        _count: 13
+      - _type: 3
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 72
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 22
+      - _type: 3
+        _count: 23
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 73
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 74
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 35
+      - _type: 3
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 75
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 35
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 76
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 25
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 77
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 78
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 32
+      - _type: 3
+        _count: 32
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 79
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+  - TerrainId: 5
+    WaveDatas:
+    - WaveId: 1
+      TimeToSpawn: 1.5
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 2
+      TimeToSpawn: 1.3
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 3
+      TimeToSpawn: 0.9
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 4
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 5
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 14
+      - _type: 2
+        _count: 6
+      - _type: 7
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 6
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 7
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 7
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 3
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 8
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 6
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 9
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 9
+      - _type: 2
+        _count: 9
+      - _type: 3
+        _count: 7
+      - _type: 7
+        _count: 3
+      - _type: 8
+        _count: 5
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 10
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 3
+      - _type: 2
+        _count: 3
+      - _type: 3
+        _count: 2
+      - _type: 7
+        _count: 1
+      - _type: 8
+        _count: 2
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 11
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 8
+      - _type: 7
+        _count: 5
+      - _type: 8
+        _count: 3
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 12
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 9
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 3
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 13
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 9
+      - _type: 3
+        _count: 9
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 14
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 7
+      - _type: 3
+        _count: 12
+      - _type: 7
+        _count: 8
+      - _type: 8
+        _count: 7
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 15
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 13
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 16
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 12
+      - _type: 7
+        _count: 5
+      - _type: 8
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 17
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 5
+      - _type: 8
+        _count: 5
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 18
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 16
+      - _type: 7
+        _count: 6
+      - _type: 8
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 19
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 16
+      - _type: 7
+        _count: 7
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 20
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 4
+      - _type: 2
+        _count: 4
+      - _type: 3
+        _count: 3
+      - _type: 7
+        _count: 2
+      - _type: 8
+        _count: 1
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 21
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 7
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 22
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 9
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 23
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 24
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 25
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 26
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 5
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 27
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 20
+      - _type: 8
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 28
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 18
+      - _type: 8
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 29
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      - _type: 7
+        _count: 6
+      - _type: 8
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 30
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 4
+      - _type: 2
+        _count: 4
+      - _type: 3
+        _count: 5
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 4
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 31
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 8
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 32
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 33
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 34
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 35
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 36
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 37
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 38
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 39
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 17
+      - _type: 8
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 40
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 6
+      - _type: 7
+        _count: 5
+      - _type: 8
+        _count: 5
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 41
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 42
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 7
+        _count: 8
+      - _type: 8
+        _count: 7
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 43
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 44
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 45
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 46
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 47
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 48
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 16
+      - _type: 8
+        _count: 16
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 49
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 7
+        _count: 12
+      - _type: 8
+        _count: 13
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 50
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 6
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 4
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 51
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 52
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 53
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 54
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 55
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 56
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 57
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 58
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 14
+      - _type: 8
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 59
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 18
+      - _type: 8
+        _count: 17
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 60
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 8
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 3
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 61
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 7
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 62
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 8
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 63
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 64
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 65
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 18
+      - _type: 8
+        _count: 17
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 66
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 67
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 68
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 18
+      - _type: 8
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 69
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 22
+      - _type: 8
+        _count: 23
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 70
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 8
+      - _type: 7
+        _count: 4
+      - _type: 8
+        _count: 6
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 71
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 7
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 72
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 8
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 73
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 74
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 75
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 18
+      - _type: 8
+        _count: 17
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 76
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 77
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 78
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 18
+      - _type: 8
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 79
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 7
+        _count: 22
+      - _type: 8
+        _count: 23
+      EnemiesByPointsIds: []
+      PointsIds: 
+  - TerrainId: 4
+    WaveDatas:
+    - WaveId: 1
+      TimeToSpawn: 1.5
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 2
+      TimeToSpawn: 1.3
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 3
+      TimeToSpawn: 0.9
+      DelayBeforeWave: 2
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 24
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 4
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 12
+      - _type: 2
+        _count: 6
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 5
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 14
+      - _type: 2
+        _count: 6
+      - _type: 8
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 6
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 8
+        _count: 4
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 7
+      TimeToSpawn: 0.7
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 8
+        _count: 7
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 8
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 7
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 6
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 9
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 9
+      - _type: 2
+        _count: 9
+      - _type: 3
+        _count: 7
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 10
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 3
+      - _type: 2
+        _count: 3
+      - _type: 3
+        _count: 2
+      - _type: 8
+        _count: 3
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 11
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 8
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 12
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 8
+      - _type: 3
+        _count: 9
+      - _type: 8
+        _count: 7
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 13
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 9
+      - _type: 3
+        _count: 9
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 14
+      TimeToSpawn: 0.6
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 7
+      - _type: 3
+        _count: 12
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 15
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 13
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 16
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 8
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 12
+      - _type: 8
+        _count: 11
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 17
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 6
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 18
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 10
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 16
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 19
+      TimeToSpawn: 0.55
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 16
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 20
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 4
+      - _type: 2
+        _count: 4
+      - _type: 3
+        _count: 3
+      - _type: 8
+        _count: 3
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 21
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 12
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 22
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 17
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 23
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 8
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 24
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 25
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 26
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 27
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 45
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 28
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 36
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 29
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 12
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 30
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 4
+      - _type: 2
+        _count: 4
+      - _type: 3
+        _count: 5
+      - _type: 8
+        _count: 8
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 31
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 32
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 33
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 34
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 35
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 28
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 36
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 37
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 38
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 25
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 39
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 40
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 5
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 6
+      - _type: 8
+        _count: 10
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 41
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 42
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 43
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 10
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 44
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 45
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 46
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 30
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 47
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 48
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 18
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 18
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 49
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 15
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 50
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 8
+      - _type: 8
+        _count: 6
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 51
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 52
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 53
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 54
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 55
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 56
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 57
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 58
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 19
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 59
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 22
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 60
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 8
+      - _type: 8
+        _count: 6
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 61
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 62
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 63
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 64
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 65
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 66
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 67
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 68
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 19
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 69
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 22
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 70
+      TimeToSpawn: 0.1
+      DelayBeforeWave: 0
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 8
+      - _type: 8
+        _count: 6
+      - _type: 5
+        _count: 1
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 71
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 72
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 15
+      - _type: 8
+        _count: 15
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 73
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 5
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 74
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 5
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 10
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 75
+      TimeToSpawn: 0.5
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 76
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 20
+      - _type: 2
+        _count: 20
+      - _type: 3
+        _count: 20
+      - _type: 8
+        _count: 20
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 77
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 15
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 25
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 78
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 30
+      - _type: 3
+        _count: 25
+      - _type: 8
+        _count: 19
+      EnemiesByPointsIds: []
+      PointsIds: 
+    - WaveId: 79
+      TimeToSpawn: 0.45
+      DelayBeforeWave: 4
+      NextWaveAfterDefeat: 1
+      EnemiesInfo:
+      - _type: 1
+        _count: 10
+      - _type: 2
+        _count: 10
+      - _type: 3
+        _count: 30
+      - _type: 8
+        _count: 22
+      EnemiesByPointsIds: []
+      PointsIds: 

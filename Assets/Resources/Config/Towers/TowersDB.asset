@@ -1,0 +1,330 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce598d2a1a6bdbf4bbd8d2ebce79b2bb, type: 3}
+  m_Name: TowersDB
+  m_EditorClassIdentifier: 
+  _towersData:
+  - Id: 1
+    TerrainId: 1
+    UnlockPrice: 0
+    StartWaveId: 0
+    CurrencyMult: 0.8
+    EnemiesHealthMult: -0.15
+    EnemiesDamageMult: -0.15
+  - Id: 2
+    TerrainId: 1
+    UnlockPrice: 1
+    StartWaveId: 0
+    CurrencyMult: 0.8
+    EnemiesHealthMult: -0.1
+    EnemiesDamageMult: -0.1
+  - Id: 3
+    TerrainId: 1
+    UnlockPrice: 100
+    StartWaveId: 0
+    CurrencyMult: 0.9
+    EnemiesHealthMult: 0.5
+    EnemiesDamageMult: 0
+  - Id: 4
+    TerrainId: 1
+    UnlockPrice: 1000
+    StartWaveId: 0
+    CurrencyMult: 0.9
+    EnemiesHealthMult: 0.7
+    EnemiesDamageMult: 0.2
+  - Id: 5
+    TerrainId: 1
+    UnlockPrice: 2000
+    StartWaveId: 0
+    CurrencyMult: 1
+    EnemiesHealthMult: 1
+    EnemiesDamageMult: 0.4
+  - Id: 6
+    TerrainId: 2
+    UnlockPrice: 5000
+    StartWaveId: 10
+    CurrencyMult: 1
+    EnemiesHealthMult: 1.6
+    EnemiesDamageMult: 0.6
+  - Id: 7
+    TerrainId: 2
+    UnlockPrice: 10000
+    StartWaveId: 10
+    CurrencyMult: 1.1
+    EnemiesHealthMult: 2
+    EnemiesDamageMult: 0.8
+  - Id: 8
+    TerrainId: 2
+    UnlockPrice: 15000
+    StartWaveId: 10
+    CurrencyMult: 1.2
+    EnemiesHealthMult: 2.4
+    EnemiesDamageMult: 1
+  - Id: 9
+    TerrainId: 2
+    UnlockPrice: 20000
+    StartWaveId: 10
+    CurrencyMult: 1.3
+    EnemiesHealthMult: 2.8
+    EnemiesDamageMult: 1.2
+  - Id: 10
+    TerrainId: 2
+    UnlockPrice: 30000
+    StartWaveId: 20
+    CurrencyMult: 1.4
+    EnemiesHealthMult: 3.3
+    EnemiesDamageMult: 1.4
+  - Id: 11
+    TerrainId: 2
+    UnlockPrice: 40000
+    StartWaveId: 20
+    CurrencyMult: 1.5
+    EnemiesHealthMult: 4
+    EnemiesDamageMult: 1.6
+  - Id: 12
+    TerrainId: 2
+    UnlockPrice: 50000
+    StartWaveId: 20
+    CurrencyMult: 1.6
+    EnemiesHealthMult: 4.5
+    EnemiesDamageMult: 1.8
+  - Id: 13
+    TerrainId: 2
+    UnlockPrice: 60000
+    StartWaveId: 20
+    CurrencyMult: 1.8
+    EnemiesHealthMult: 5
+    EnemiesDamageMult: 2.1
+  - Id: 14
+    TerrainId: 2
+    UnlockPrice: 70000
+    StartWaveId: 20
+    CurrencyMult: 1.9
+    EnemiesHealthMult: 5.5
+    EnemiesDamageMult: 2.4
+  - Id: 15
+    TerrainId: 2
+    UnlockPrice: 80000
+    StartWaveId: 20
+    CurrencyMult: 2
+    EnemiesHealthMult: 6
+    EnemiesDamageMult: 2.7
+  - Id: 16
+    TerrainId: 2
+    UnlockPrice: 100000
+    StartWaveId: 20
+    CurrencyMult: 2.2
+    EnemiesHealthMult: 7
+    EnemiesDamageMult: 3
+  - Id: 17
+    TerrainId: 3
+    UnlockPrice: 120000
+    StartWaveId: 30
+    CurrencyMult: 2.5
+    EnemiesHealthMult: 8
+    EnemiesDamageMult: 3.3
+  - Id: 18
+    TerrainId: 3
+    UnlockPrice: 140000
+    StartWaveId: 30
+    CurrencyMult: 2.8
+    EnemiesHealthMult: 9
+    EnemiesDamageMult: 3.6
+  - Id: 19
+    TerrainId: 3
+    UnlockPrice: 160000
+    StartWaveId: 30
+    CurrencyMult: 3
+    EnemiesHealthMult: 10
+    EnemiesDamageMult: 4
+  - Id: 20
+    TerrainId: 3
+    UnlockPrice: 180000
+    StartWaveId: 30
+    CurrencyMult: 3.5
+    EnemiesHealthMult: 11
+    EnemiesDamageMult: 4.4
+  - Id: 21
+    TerrainId: 3
+    UnlockPrice: 200000
+    StartWaveId: 30
+    CurrencyMult: 4
+    EnemiesHealthMult: 12
+    EnemiesDamageMult: 4.8
+  - Id: 22
+    TerrainId: 3
+    UnlockPrice: 220000
+    StartWaveId: 30
+    CurrencyMult: 4.5
+    EnemiesHealthMult: 13
+    EnemiesDamageMult: 5.2
+  - Id: 23
+    TerrainId: 3
+    UnlockPrice: 250000
+    StartWaveId: 30
+    CurrencyMult: 5
+    EnemiesHealthMult: 14.5
+    EnemiesDamageMult: 5.5
+  - Id: 24
+    TerrainId: 3
+    UnlockPrice: 300000
+    StartWaveId: 30
+    CurrencyMult: 5.6
+    EnemiesHealthMult: 16
+    EnemiesDamageMult: 5.9
+  - Id: 25
+    TerrainId: 3
+    UnlockPrice: 350000
+    StartWaveId: 30
+    CurrencyMult: 6.1
+    EnemiesHealthMult: 17.5
+    EnemiesDamageMult: 6.3
+  - Id: 26
+    TerrainId: 4
+    UnlockPrice: 400000
+    StartWaveId: 30
+    CurrencyMult: 6.7
+    EnemiesHealthMult: 19
+    EnemiesDamageMult: 6.7
+  - Id: 27
+    TerrainId: 4
+    UnlockPrice: 450000
+    StartWaveId: 40
+    CurrencyMult: 7.7
+    EnemiesHealthMult: 21
+    EnemiesDamageMult: 7.2
+  - Id: 28
+    TerrainId: 4
+    UnlockPrice: 500000
+    StartWaveId: 40
+    CurrencyMult: 8.2
+    EnemiesHealthMult: 23
+    EnemiesDamageMult: 7.7
+  - Id: 29
+    TerrainId: 4
+    UnlockPrice: 600000
+    StartWaveId: 40
+    CurrencyMult: 8.7
+    EnemiesHealthMult: 25
+    EnemiesDamageMult: 8.2
+  - Id: 30
+    TerrainId: 4
+    UnlockPrice: 700000
+    StartWaveId: 40
+    CurrencyMult: 9.7
+    EnemiesHealthMult: 27
+    EnemiesDamageMult: 9
+  - Id: 31
+    TerrainId: 4
+    UnlockPrice: 800000
+    StartWaveId: 40
+    CurrencyMult: 10.7
+    EnemiesHealthMult: 29
+    EnemiesDamageMult: 9.5
+  - Id: 32
+    TerrainId: 4
+    UnlockPrice: 1000000
+    StartWaveId: 40
+    CurrencyMult: 12
+    EnemiesHealthMult: 31
+    EnemiesDamageMult: 10
+  - Id: 33
+    TerrainId: 4
+    UnlockPrice: 1200000
+    StartWaveId: 40
+    CurrencyMult: 13
+    EnemiesHealthMult: 33
+    EnemiesDamageMult: 10.5
+  - Id: 34
+    TerrainId: 4
+    UnlockPrice: 1400000
+    StartWaveId: 40
+    CurrencyMult: 14
+    EnemiesHealthMult: 35
+    EnemiesDamageMult: 11.5
+  - Id: 35
+    TerrainId: 4
+    UnlockPrice: 1600000
+    StartWaveId: 40
+    CurrencyMult: 15.2
+    EnemiesHealthMult: 37
+    EnemiesDamageMult: 12
+  - Id: 36
+    TerrainId: 4
+    UnlockPrice: 2000000
+    StartWaveId: 40
+    CurrencyMult: 16.4
+    EnemiesHealthMult: 40
+    EnemiesDamageMult: 13
+  - Id: 37
+    TerrainId: 5
+    UnlockPrice: 2500000
+    StartWaveId: 50
+    CurrencyMult: 17.6
+    EnemiesHealthMult: 42
+    EnemiesDamageMult: 14
+  - Id: 38
+    TerrainId: 5
+    UnlockPrice: 3000000
+    StartWaveId: 50
+    CurrencyMult: 18.8
+    EnemiesHealthMult: 44
+    EnemiesDamageMult: 14.5
+  - Id: 39
+    TerrainId: 5
+    UnlockPrice: 5000000
+    StartWaveId: 50
+    CurrencyMult: 20
+    EnemiesHealthMult: 46
+    EnemiesDamageMult: 15
+  - Id: 40
+    TerrainId: 5
+    UnlockPrice: 8000000
+    StartWaveId: 50
+    CurrencyMult: 21.5
+    EnemiesHealthMult: 48
+    EnemiesDamageMult: 16
+  - Id: 41
+    TerrainId: 5
+    UnlockPrice: 12000000
+    StartWaveId: 50
+    CurrencyMult: 23
+    EnemiesHealthMult: 50
+    EnemiesDamageMult: 17
+  - Id: 42
+    TerrainId: 5
+    UnlockPrice: 15000000
+    StartWaveId: 50
+    CurrencyMult: 24.5
+    EnemiesHealthMult: 52
+    EnemiesDamageMult: 18
+  - Id: 43
+    TerrainId: 5
+    UnlockPrice: 20000000
+    StartWaveId: 50
+    CurrencyMult: 26
+    EnemiesHealthMult: 55
+    EnemiesDamageMult: 19
+  - Id: 44
+    TerrainId: 5
+    UnlockPrice: 50000000
+    StartWaveId: 50
+    CurrencyMult: 27.5
+    EnemiesHealthMult: 60
+    EnemiesDamageMult: 20
+  - Id: 45
+    TerrainId: 5
+    UnlockPrice: 100000000
+    StartWaveId: 50
+    CurrencyMult: 29
+    EnemiesHealthMult: 70
+    EnemiesDamageMult: 25

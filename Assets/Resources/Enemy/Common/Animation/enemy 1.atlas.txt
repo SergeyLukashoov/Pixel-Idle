@@ -1,0 +1,13 @@
+enemy 1.png
+size:256,512
+filter:Linear,Linear
+pma:true
+enemy 1/eye
+bounds:2,68,148,147
+enemy 1/eye_Dem
+bounds:2,216,148,147
+enemy 1/pupil
+bounds:80,2,67,67
+enemy 1/pupil_Dem
+bounds:2,4,67,67
+rotate:180

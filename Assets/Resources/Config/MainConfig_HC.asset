@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03973e5e68ba74747956efa52deb0e05, type: 3}
+  m_Name: MainConfig_HC
+  m_EditorClassIdentifier: 
+  _gameWidth: 1080
+  _gameHeight: 1920
+  _pixelsInMeter: 90
+  _baseSpeed: 20
+  _bulletSpeed: 1400
+  _startCoins: 0
+  _startCoreExp: 30
+  _spawnPointsCooldown: 3
+  _unlockWorkshopReward: 250
+  _oneCrystalCoinsPrice: 500
+  _explodeRange: 150
+  _healthModify: 1
+  _towerRangeStep: 75
+  _minTowerRange: 75
+  _maxTowerRange: 300
+  _towerViewRange: 450
+  _towerLockedViewRange: 100
+  _viewRangeDeltaForFog: 200
+  _grandChestMaxResources: 10
+  _grandChestIncomeCount: 1
+  _grandChestStartProduceTime: 3600
+  _grandChestProduceTimeStep: 3600
+  _activeSlotsCount: 4
+  _gameData: {fileID: 11400000, guid: 402e40e1fa5e7de4fba898dc8b1fb627, type: 2}
+  _upgradeStatsCrystalInfos:
+  - Type: 3
+    StartLevelUp: 9
+  - Type: 4
+    StartLevelUp: 19
+  _interstitialAdCooldown: 90
+  _interstitialAdMapCount: 3
+  _adsAccelerateReward: 5.5
+  _adsAccelerateTime: 120
+  _adsEndRunBonus: 2
+  _noAdsReward:
+  - Type: 3
+    Count: 30000
+  - Type: 4
+    Count: 30000
+  - Type: 0
+    Count: 10000
+  _startWaveId: 0

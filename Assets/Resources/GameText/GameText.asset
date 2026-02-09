@@ -1,0 +1,769 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c3e3eec1d66cd4598f6c3d31162b1b, type: 3}
+  m_Name: GameText
+  m_EditorClassIdentifier: 
+  _gameText:
+  - _id: Damage_name
+    _ru: "\u0423\u0440\u043E\u043D"
+    _en: Damage
+  - _id: ShotsPerSec_name
+    _ru: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0430\u0442\u0430\u043A\u0438"
+    _en: Attack speed
+  - _id: Range_name
+    _ru: "\u0420\u0430\u0434\u0438\u0443\u0441 \u0430\u0442\u0430\u043A\u0438"
+    _en: Attack range
+  - _id: AddDmgPerRange_name
+    _ru: "\u0411\u043E\u043D\u0443\u0441 \u0437\u0430 \u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
+    _en: Range bonus
+  - _id: CritChance_name
+    _ru: "\u0428\u0430\u043D\u0441 \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E
+      \u0443\u0440\u043E\u043D\u0430"
+    _en: Critical chance
+  - _id: CritMult_name
+    _ru: "\u041C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E
+      \u0443\u0440\u043E\u043D\u0430"
+    _en: Critical multiplier
+  - _id: Health_name
+    _ru: "\u0416\u0438\u0437\u043D\u0438"
+    _en: Health
+  - _id: HealthRegen_name
+    _ru: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435
+      \u0436\u0438\u0437\u043D\u0438"
+    _en: Health regen.
+  - _id: Mana_name
+    _ru: "\u041C\u0430\u043D\u0430"
+    _en: Mana
+  - _id: ManaRegen_name
+    _ru: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435
+      \u043C\u0430\u043D\u044B"
+    _en: Mana regen.
+  - _id: CoreCurrencyMult_name
+    _ru: "\u041C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C \u043E\u043F\u044B\u0442\u0430"
+    _en: Exp. multiplier
+  - _id: CoreCurrencyForWave_name
+    _ru: "\u041E\u043F\u044B\u0442 \u0437\u0430 \u0432\u043E\u043B\u043D\u0443"
+    _en: Exp. per wave
+  - _id: MetaCurrencyMult_name
+    _ru: "\u041C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C \u043C\u043E\u043D\u0435\u0442"
+    _en: Coins multiplier
+  - _id: MetaCurrencyForWave_name
+    _ru: "\u041C\u043E\u043D\u0435\u0442\u044B \u0437\u0430 \u0432\u043E\u043B\u043D\u0443"
+    _en: Coins per wave
+  - _id: PhysicalResist_name
+    _ru: "\u0424\u0438\u0437\u0438\u0447\u0435\u0441\u043A\u043E\u0435 \u0441\u043E\u043F\u0440\u043E\u0442\u0438\u0432\u043B\u0435\u043D\u0438\u0435"
+    _en: Physical resist
+  - _id: MagicalResist_name
+    _ru: "\u041C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u043E\u0435 \u0441\u043E\u043F\u0440\u043E\u0442\u0438\u0432\u043B\u0435\u043D\u0438\u0435"
+    _en: Magical resist
+  - _id: SuperCritChance_name
+    _ru: "\u0428\u0430\u043D\u0441 \u0441\u0443\u043F\u0435\u0440\u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E
+      \u0443\u0440\u043E\u043D\u0430"
+    _en: Super critical damage chance
+  - _id: SuperCritMult_name
+    _ru: "\u041C\u043D\u043E\u0436\u0438\u0442\u0435\u043B\u044C \u0441\u0443\u043F\u0435\u0440\u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E
+      \u0443\u0440\u043E\u043D\u0430"
+    _en: Super critical damage multiplier
+  - _id: AbsoluteResist_name
+    _ru: "\u041F\u043E\u0433\u043B\u043E\u0449\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u043D\u0430"
+    _en: Damage absorption
+  - _id: Damage_hint_info
+    _ru: "\u0423\u0440\u043E\u043D, \u043A\u043E\u0442\u043E\u0440\u044B\u0439 \u043D\u0430\u043D\u043E\u0441\u0438\u0442
+      \u043A\u0430\u0436\u0434\u044B\u0439 \u0432\u044B\u0441\u0442\u0440\u0435\u043B"
+    _en: Damage per projectile
+  - _id: ShotsPerSec_hint_info
+    _ru: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u043E\u0432
+      \u0432 \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
+    _en: Projectiles per second
+  - _id: Range_hint_info
+    _ru: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439
+      \u0440\u0430\u0434\u0438\u0443\u0441 \u0430\u0442\u0430\u043A\u0438 \u0431\u0430\u0448\u043D\u0438"
+    _en: Tower attack max range
+  - _id: AddDmgPerRange_hint_info
+    _ru: "\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u043D\u0430
+      \u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438 \u043E\u0442
+      \u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u0438 \u0430\u0442\u0430\u043A\u0438
+      \u043F\u043E \u0432\u0440\u0430\u0433\u0443"
+    _en: 'Ranged attack damage increase '
+  - _id: CritChance_hint_info
+    _ru: "\u0428\u0430\u043D\u0441 \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+      \u0443\u0434\u0430\u0440"
+    _en: Chance to deal a crit hit
+  - _id: CritMult_hint_info
+    _ru: "\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u043D\u0430
+      \u043F\u0440\u0438 \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u043C
+      \u0443\u0434\u0430\u0440\u0435"
+    _en: Damage multiplier for crit hits
+  - _id: Health_hint_info
+    _ru: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
+      \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0436\u0438\u0437\u043D\u0435\u0439
+      \u0431\u0430\u0448\u043D\u0438"
+    _en: Max health of your character
+  - _id: HealthRegen_hint_info
+    _ru: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0436\u0438\u0437\u043D\u0435\u0439,
+      \u0433\u0435\u043D\u0435\u0440\u0438\u0440\u0443\u0435\u043C\u043E\u0435 \u043A\u0430\u0436\u0434\u0443\u044E
+      \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
+    _en: Health regenerated per second
+  - _id: Mana_hint_info
+    _ru: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u043A
+      \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u044D\u043D\u0435\u0440\u0433\u0438\u0438"
+    _en: Max energy
+  - _id: ManaRegen_hint_info
+    _ru: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u044D\u043D\u0435\u0440\u0433\u0438\u0438,
+      \u0433\u0435\u043D\u0435\u0440\u0438\u0440\u0443\u0435\u043C\u043E\u0435 \u043A\u0430\u0436\u0434\u0443\u044E
+      \u0441\u0435\u043A\u0443\u043D\u0434\u0443"
+    _en: Energy regenerated per second
+  - _id: CoreCurrencyMult_hint_info
+    _ru: "\u041C\u0443\u043B\u044C\u0442\u0438\u043F\u043B\u0438\u043A\u0430\u0442\u043E\u0440,
+      \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u044E\u0449\u0438\u0439
+      \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E EXP \u0441 \u043B\u044E\u0431\u044B\u0445
+      \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u043E\u0432"
+    _en: Multiplier of exp. earned from all sources
+  - _id: CoreCurrencyForWave_hint_info
+    _ru: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E EXP, \u0432\u044B\u0434\u0430\u0432\u0430\u0435\u043C\u043E\u0435
+      \u043F\u0440\u0438 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u0438
+      \u0432\u043E\u043B\u043D\u044B"
+    _en: Exp. earned after completing a wave
+  - _id: MetaCurrencyMult_hint_info
+    _ru: "\u041C\u0443\u043B\u044C\u0442\u0438\u043F\u043B\u0438\u043A\u0430\u0442\u043E\u0440,
+      \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0430\u044E\u0449\u0438\u0439
+      \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043C\u043E\u043D\u0435\u0442
+      \u0441 \u043B\u044E\u0431\u044B\u0445 \u0438\u0441\u0442\u043E\u0447\u043D\u0438\u043A\u043E\u0432"
+    _en: Multiplier of coins earned from all sources
+  - _id: MetaCurrencyForWave_hint_info
+    _ru: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043C\u043E\u043D\u0435\u0442,
+      \u0432\u044B\u0434\u0430\u0432\u0430\u0435\u043C\u043E\u0435 \u043F\u0440\u0438
+      \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u0438 \u0432\u043E\u043B\u043D\u044B"
+    _en: Coins earned after completing a wave
+  - _id: PhysicalResist_hint_info
+    _ru: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0444\u0438\u0437.
+      \u0443\u0440\u043E\u043D\u0430, \u043A\u043E\u0442\u043E\u0440\u043E\u0435
+      \u0431\u043B\u043E\u043A\u0438\u0440\u0443\u0435\u0442\u0441\u044F \u0431\u0430\u0448\u043D\u0435\u0439
+      \u0441 \u043A\u0430\u0436\u0434\u043E\u0439 \u0430\u0442\u0430\u043A\u0438"
+    _en: Physical damage blocked at each attack on the tower
+  - _id: MagicalResist_hint_info
+    _ru: "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u043C\u0430\u0433.
+      \u0443\u0440\u043E\u043D\u0430, \u043A\u043E\u0442\u043E\u0440\u043E\u0435
+      \u0431\u043B\u043E\u043A\u0438\u0440\u0443\u0435\u0442\u0441\u044F \u0431\u0430\u0448\u043D\u0435\u0439
+      \u0441 \u043A\u0430\u0436\u0434\u043E\u0439 \u0430\u0442\u0430\u043A\u0438"
+    _en: Magical damage blocked at each attack on the tower
+  - _id: SuperCritChance_hint_info
+    _ru: "\u0428\u0430\u043D\u0441 \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u0441\u0443\u043F\u0435\u0440\u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+      \u0443\u0434\u0430\u0440"
+    _en: Chance to deal a super crit hit
+  - _id: SuperCritMult_hint_info
+    _ru: "\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435 \u0443\u0440\u043E\u043D\u0430
+      \u043F\u0440\u0438 \u0441\u0443\u043F\u0435\u0440\u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u043C
+      \u0443\u0434\u0430\u0440\u0435"
+    _en: Damage multiplier for super crit hits
+  - _id: AbsoluteResist_hint_info
+    _ru: "\u041F\u0440\u043E\u0446\u0435\u043D\u0442 \u0444\u0438\u0437. \u0443\u0440\u043E\u043D\u0430,
+      \u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0431\u043B\u043E\u043A\u0438\u0440\u0443\u0435\u0442\u0441\u044F
+      \u0431\u0430\u0448\u043D\u0435\u0439 \u0441 \u043A\u0430\u0436\u0434\u043E\u0439
+      \u0430\u0442\u0430\u043A\u0438"
+    _en: Percent of physical damage blocked at each attack on the tower
+  - _id: Common_name
+    _ru: "\u041E\u0431\u044B\u0447\u043D\u044B\u0439"
+    _en: Basic
+  - _id: Quick_name
+    _ru: "\u0410\u0442\u0430\u043A\u0443\u044E\u0449\u0438\u0439"
+    _en: Fast
+  - _id: Durable_name
+    _ru: "\u0411\u0440\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439"
+    _en: Armored
+  - _id: Boss_name
+    _ru: "\u041A\u043E\u043B\u043E\u0441\u0441\u0430\u043B\u044C\u043D\u044B\u0439"
+    _en: Boss
+  - _id: BossSimple_name
+    _ru: "\u041A\u043E\u043B\u043E\u0441\u0441\u0430\u043B\u044C\u043D\u044B\u0439"
+    _en: Boss
+  - _id: common_claim
+    _ru: "\u0417\u0430\u0431\u0440\u0430\u0442\u044C \u043D\u0430\u0433\u0440\u0430\u0434\u0443"
+    _en: Claim
+  - _id: common_ok
+    _ru: OK
+    _en: OK
+  - _id: common_cards
+    _ru: "\u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438:"
+    _en: 'Cards: '
+  - _id: common_coins
+    _ru: "\u041C\u043E\u043D\u0435\u0442\u044B"
+    _en: 'Coins: '
+  - _id: common_level
+    _ru: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
+    _en: 'Level '
+  - _id: common_battle
+    _ru: "\u0411\u0418\u0422\u0412\u0410"
+    _en: BATTLE
+  - _id: common_played_count
+    _ru: "\u0421\u044B\u0433\u0440\u0430\u043D\u043E \u0431\u0438\u0442\u0432:"
+    _en: 'Played: '
+  - _id: common_played_times
+    _ru: " \u0440\u0430\u0437"
+    _en: ' times'
+  - _id: common_unlock
+    _ru: "\u0420\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u0442\u044C"
+    _en: Unlock
+  - _id: common_bonus_coins
+    _ru: "\u0411\u043E\u043D\u0443\u0441\u043D\u044B\u0435 \u043C\u043E\u043D\u0435\u0442\u044B:"
+    _en: 'Bonus coins:'
+  - _id: common_yes
+    _ru: "\u0414\u0430"
+    _en: Yes
+  - _id: common_no
+    _ru: "\u041D\u0435\u0442"
+    _en: No
+  - _id: common_get
+    _ru: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C"
+    _en: Get
+  - _id: common_on
+    _ru: "\u0412\u043A\u043B."
+    _en: On
+  - _id: common_off
+    _ru: "\u0412\u044B\u043A\u043B."
+    _en: Off
+  - _id: common_per_hour
+    _ru: "\u043A\u0430\u0436\u0434\u044B\u0439 \u0447\u0430\u0441"
+    _en: per hour
+  - _id: common_per_custom_hour
+    _ru: "\u043A\u0430\u0436\u0434\u044B\u0435 {0} \u0447."
+    _en: per {0} h.
+  - _id: common_per_min
+    _ru: "\u043A\u0430\u0436\u0434\u0443\u044E \u043C\u0438\u043D\u0443\u0442\u0443"
+    _en: per min.
+  - _id: common_free
+    _ru: FREE
+    _en: FREE
+  - _id: common_resume
+    _ru: "\u0412\u041E\u0417\u041E\u0411\u041D\u041E\u0412\u0418\u0422\u042C"
+    _en: RESUME
+  - _id: common_max
+    _ru: MAX
+    _en: MAX
+  - _id: common_revive
+    _ru: REVIVE
+    _en: REVIVE
+  - _id: common_tap_to_continue
+    _ru: Tap to continue without bonus
+    _en: Tap to continue without bonus
+  - _id: common_bonus
+    _ru: BONUS
+    _en: BONUS
+  - _id: ExitRunWindow_info
+    _ru: "\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B \u0447\u0442\u043E
+      \u0445\u043E\u0442\u0438\u0442\u0435 \u0432\u044B\u0439\u0442\u0438?"
+    _en: Are you sure you want to exit?
+  - _id: EndRunWindow_header
+    _ru: "\u0418\u0442\u043E\u0433 \u0431\u043E\u044F"
+    _en: Statistics
+  - _id: EndRunWindow_current_wave
+    _ru: "\u0412\u043E\u043B\u043D\u0430:"
+    _en: 'Wave: '
+  - _id: EndRunWindow_max_wave
+    _ru: "\u041D\u0430\u0438\u0432\u044B\u0441\u0448\u0430\u044F \u0432\u043E\u043B\u043D\u0430:"
+    _en: 'Highest wave: '
+  - _id: EndRunWindow_killed_by
+    _ru: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0435\u043D:"
+    _en: 'Killed by: '
+  - _id: upgrade_screen_lock_info
+    _ru: "\u0411\u0443\u0434\u0435\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E
+      \u043F\u043E\u0441\u043B\u0435 \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F
+      \u043F\u0435\u0440\u0432\u043E\u0439 \u0431\u0438\u0442\u0432\u044B"
+    _en: Will be available after completing the first battle
+  - _id: cards_screen_lock_info
+    _ru: "\u0411\u0443\u0434\u0435\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E
+      \u043F\u043E\u0441\u043B\u0435 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043D\u0438\u044F
+      10\u0439 \u0432\u043E\u043B\u043D\u044B \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432"
+    _en: Will be available after completing the 10th wave of monsters
+  - _id: header_upgrade_attack
+    _ru: "\u0410\u0442\u0430\u043A\u0443\u044E\u0449\u0438\u0435 \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A\u0438"
+    _en: Attack Upgrade
+  - _id: header_upgrade_defence
+    _ru: "\u0417\u0430\u0449\u0438\u0442\u043D\u044B\u0435 \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A\u0438"
+    _en: Defense Upgrade
+  - _id: header_upgrade_economy
+    _ru: "\u0425\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A\u0438
+      \u044D\u043A\u043E\u043D\u043E\u043C\u0438\u043A\u0438"
+    _en: Economy Upgrade
+  - _id: unlock_stats_info
+    _ru: "\u0420\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u0443\u0439\u0442\u0435
+      \u0431\u043E\u043B\u044C\u0448\u0435 \u0431\u0430\u0448\u0435\u043D, \u0447\u0442\u043E\u0431\u044B
+      \u043E\u0442\u043A\u0440\u044B\u0442\u044C \u043D\u043E\u0432\u044B\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B"
+    _en: Unlock more towers to open new parameters
+  - _id: unlock_cards_info
+    _ru: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u044C\u0442\u0435 10 \u0432\u043E\u043B\u043D,
+      \u0447\u0442\u043E\u0431\u044B \u043E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438"
+    _en: Defeat 10 waves to unlock...
+  - _id: hint_window_current_level
+    _ru: "\u0422\u0435\u043A\u0443\u0447\u0438\u0439 \u0443\u0440\u043E\u0432\u0435\u043D\u044C"
+    _en: 'Current Level: '
+  - _id: hint_window_max_level
+    _ru: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u044B\u0439
+      \u0443\u0440\u043E\u0432\u0435\u043D\u044C"
+    _en: 'Max Level: '
+  - _id: card_hint_window_current_level
+    _ru: 'Lvl. '
+    _en: 'Lvl. '
+  - _id: card_hint_window_next_level
+    _ru: Next
+    _en: Next
+  - _id: cards_screen_active_header
+    _ru: "\u0410\u043A\u0442\u0438\u0432\u043D\u044B\u0435 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438"
+    _en: Active Cards
+  - _id: cards_screen_available_header
+    _ru: "\u0414\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0435 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438"
+    _en: Available Cards
+  - _id: CoinsBoost_name
+    _ru: Coins Boost
+    _en: Coins Boost
+  - _id: WaveSkip_name
+    _ru: Time Shift
+    _en: Time Shift
+  - _id: Revive_name
+    _ru: Revive
+    _en: Revive
+  - _id: AttackUp_name
+    _ru: "\u041F\u043E\u0432\u044B\u0448\u0435\u043D\u0438\u0435 \u0430\u0442\u0430\u043A\u0438"
+    _en: Attack boost
+  - _id: HealthUp_name
+    _ru: "\u041F\u043E\u0432\u044B\u0448\u0435\u043D\u0438\u0435 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
+    _en: Health boost
+  - _id: Multishot_name
+    _ru: "\u041C\u043D\u043E\u0433\u043E\u0437\u0430\u0440\u044F\u0434\u043D\u044B\u0439
+      \u0432\u044B\u0441\u0442\u0440\u0435\u043B"
+    _en: Multishot
+  - _id: Fortification_name
+    _ru: "\u0423\u0441\u0438\u043B\u0435\u043D\u0438\u0435"
+    _en: Fortification
+  - _id: VampireBite_name
+    _ru: "\u0423\u043A\u0443\u0441 \u0432\u0430\u043C\u043F\u0438\u0440\u0430"
+    _en: Vampire Bite
+  - _id: CoinsBoost_hint
+    _ru: Increases coins income from all sources by {0}%.
+    _en: Increases coin income from all sources by {0}% for each battle
+  - _id: WaveSkip_hint
+    _ru: '{0}% chance to skip a wave and earn Experience and Coins equal to the skipped
+      wave''s potential.'
+    _en: '{0}% chance to skip a wave and earn Exp. and Coins equal to the skipped
+      wave''s potential.'
+  - _id: Revive_hint
+    _ru: Revive once per run, restore half your health, and gain invincibility shield
+      for {0} seconds.
+    _en: Revive once per run, restore half of the health and gain invincibility shield
+      for {0} seconds.
+  - _id: AttackUp_hint
+    _ru: "\u041F\u043E\u0432\u044B\u0448\u0430\u0435\u0442 \u0441\u0438\u043B\u0443
+      \u0430\u0442\u0430\u043A\u0438 \u043D\u0430 {0}%"
+    _en: Increases attack power by {0}%
+  - _id: HealthUp_hint
+    _ru: "\u041F\u043E\u0432\u044B\u0448\u0430\u0435\u0442 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435
+      \u043D\u0430 {0}% \u043E\u0442 \u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E"
+    _en: Increases HP by {0}% of the current HP
+  - _id: Multishot_hint
+    _ru: "\u0412\u044B\u0441\u0442\u0440\u0435\u043B\u0438\u0432\u0430\u0435\u0442
+      {0} \u0441\u043D\u0430\u0440\u044F\u0434\u043E\u0432 \u0432 \u0440\u0430\u0437\u043B\u0438\u0447\u043D\u044B\u0445
+      \u0432\u0440\u0430\u0433\u043E\u0432 \u0441 \u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E\u0441\u0442\u044C\u044E
+      {1}%"
+    _en: Shoots {0} bullets at different enemies with {1}% probability
+  - _id: Fortification_hint
+    _ru: "\u0423\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442 \u0443\u0440\u043E\u043D
+      \u043E\u0442 \u043A\u0430\u0436\u0434\u043E\u0439 \u0430\u0442\u0430\u043A\u0438
+      \u0432\u0440\u0430\u0433\u0430 \u043D\u0430 {0}%"
+    _en: Decreases damage from each enemy's attack by {0}%
+  - _id: VampireBite_hint
+    _ru: "\u0412\u0435\u0440\u043E\u044F\u0442\u043D\u043E\u0441\u0442\u044C {0}%
+      \u0432\u0435\u0440\u043D\u0443\u0442\u044C \u0441\u0435\u0431\u0435 50% \u0443\u0440\u043E\u043D\u0430
+      \u0432 \u0432\u0438\u0434\u0435 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
+    _en: '{0}% chance to regain 50% of dealt damage as HP'
+  - _id: multi_shot_header
+    _ru: MULTI!
+    _en: MULTI!
+  - _id: tutorial_first_launch_info
+    _ru: Tap to start game
+    _en: Tap to start game
+  - _id: tutorial_first_core_upgrade_info
+    _ru: "\u041F\u0440\u043E\u043A\u0430\u0447\u0438\u0432\u0430\u0439\u0442\u0435
+      \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B \u0447\u0442\u043E\u0431\u044B
+      \u044D\u0444\u0444\u0435\u043A\u0442\u0438\u0432\u043D\u0435\u0435 \u0441\u0440\u0430\u0436\u0430\u0442\u044C\u0441\u044F"
+    _en: Upgrade parameters to increase your combat efficiency
+  - _id: workshop_header
+    _ru: Workshop
+    _en: Workshop
+  - _id: workshop_unlocked
+    _ru: Workshop unlocked!
+    _en: Workshop unlocked!
+  - _id: workshop_unlocked_info
+    _ru: Now you can upgrade your skills
+    _en: Now you can upgrade your skills
+  - _id: card_unlocked
+    _ru: "\u0412\u044B \u043D\u0430\u0448\u043B\u0438 \u043D\u043E\u0432\u0443\u044E
+      \u043A\u0430\u0440\u0442\u0443 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438!"
+    _en: New card!
+  - _id: card_unlocked_header
+    _ru: "\u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438 \u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u044B"
+    _en: Card unlocked
+  - _id: card_unlocked_info
+    _ru: Collect cards and place them into the slots to increase your combat efficiency.
+    _en: Collect cards and place them into the slots to increase your combat efficiency.
+  - _id: card_upgraded_header
+    _ru: "\u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0430"
+    _en: Card upgraded
+  - _id: card_upgraded_info
+    _ru: Congratulations, your combat card just raised a grade and works better now!
+    _en: Congratulations, your combat card has been upgraded and works better now!
+  - _id: lock_menu_button_info
+    _ru: "\u0411\u0443\u0434\u0435\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u043E
+      \u0432 \u043D\u043E\u0432\u044B\u0445 \u0430\u043F\u0434\u0435\u0439\u0442\u0430\u0445"
+    _en: Will be available in future updates
+  - _id: lock_cards_screen_info
+    _ru: Opens after completing 10 wave of any Tower
+    _en: Opens after completing 10 waves of any Tower
+  - _id: map_chest_window_info1
+    _ru: "\u0412\u044B \u043D\u0430\u0448\u043B\u0438 \u0441\u043E\u043A\u0440\u043E\u0432\u0438\u0449\u0435!"
+    _en: You've found a chest!
+  - _id: map_chest_window_info2
+    _ru: 'Its contents are now yours:'
+    _en: 'Its contents are now yours:'
+  - _id: tower_window_info_header
+    _ru: "\u0411\u0410\u0428\u041D\u042F"
+    _en: TOWER
+  - _id: tower_window_available_info
+    _ru: "\u041F\u043E\u0441\u0442\u0440\u043E\u0439\u043A\u0430 \u043D\u043E\u0432\u043E\u0439
+      \u0431\u0430\u0448\u043D\u0438 \u0434\u043B\u044F \u0437\u0430\u0432\u043E\u0435\u0432\u0430\u043D\u0438\u044F
+      \u0442\u0435\u0440\u0440\u0438\u0442\u043E\u0440\u0438\u0439"
+    _en: Building a new tower for conquering territories
+  - _id: tower_window_add_info
+    _ru: Defeat more waves to expand your tower's control radius!
+    _en: Defeat more waves to expand your tower's control range!
+  - _id: tower_window_range
+    _ru: "\u0420\u0430\u0434\u0438\u0443\u0441 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F:"
+    _en: 'Control range: '
+  - _id: tower_window_max_wave
+    _ru: "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F
+      \u0432\u043E\u043B\u043D\u0430:"
+    _en: 'Maximum wave: '
+  - _id: tower_window_mult
+    _ru: "\u0414\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u044B\u0439
+      \u0434\u043E\u0445\u043E\u0434:"
+    _en: 'Income multiplier: '
+  - _id: chest_info_window_header
+    _ru: "\u0421\u041E\u041A\u0420\u041E\u0412\u0418\u0429\u0410"
+    _en: Crystal chest
+  - _id: chest_info_window_info
+    _ru: The chest contains treasures. Expand your tower's control radius to collect
+      them
+    _en: The chest contains treasures. Expand your tower's control range to collect
+      them
+  - _id: chest_info_condition
+    _ru: "\u0412 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F
+      \u0431\u0430\u0448\u043D\u0438"
+    _en: Tower's control range
+  - _id: settings_window_header
+    _ru: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+    _en: Settings
+  - _id: settings_window_music
+    _ru: "\u041C\u0443\u0437\u044B\u043A\u0430"
+    _en: Music
+  - _id: settings_window_sounds
+    _ru: "\u0417\u0432\u0443\u043A\u0438"
+    _en: Sounds
+  - _id: settings_window_restore_purchase
+    _ru: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
+      \u043F\u043E\u043A\u0443\u043F\u043A\u0438"
+    _en: Restore purchase
+  - _id: mine_window_condition_1
+    _ru: "\u0412 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 \u0432\u0438\u0434\u0438\u043C\u043E\u0441\u0442\u0438
+      \u0431\u0430\u0448\u043D\u0438"
+    _en: Tower's view range
+  - _id: mine_window_condition_2
+    _ru: "\u0412 \u0440\u0430\u0434\u0438\u0443\u0441\u0435 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F
+      \u0431\u0430\u0448\u043D\u0438"
+    _en: Tower's control range
+  - _id: mine_window_not_control
+    _ru: "\u0428\u0430\u0445\u0442\u0430 \u043D\u0435 \u043F\u043E\u0434 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u043C"
+    _en: The mine is not under control
+  - _id: mine_window_income
+    _ru: "\u0414\u043E\u0445\u043E\u0434:"
+    _en: 'Income: '
+  - _id: mine_window_capacity
+    _ru: "\u0412\u043C\u0435\u0441\u0442\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C: "
+    _en: 'Capacity: '
+  - _id: mine_window_mine_name
+    _ru: CRYSTAL MINE
+    _en: CRYSTAL MINE
+  - _id: mine_window_control
+    _ru: "\u0428\u0430\u0445\u0442\u0430 \u043F\u043E\u0434 \u0432\u0430\u0448\u0438\u043C
+      \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u043C"
+    _en: YOU CONTROL THE MINE!
+  - _id: tower_window_range_info_header
+    _ru: "\u0420\u0410\u0414\u0418\u0423\u0421 \u041A\u041E\u041D\u0422\u0420\u041E\u041B\u042F"
+    _en: CONTROL RANGE
+  - _id: tower_window_range_info
+    _ru: "\u0420\u0430\u0434\u0438\u0443\u0441 \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F
+      \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442 \u0440\u0430\u0441\u0448\u0438\u0440\u044F\u0442\u044C
+      \u0442\u0435\u0440\u0440\u0438\u0442\u043E\u0440\u0438\u0438 \u0432\u043B\u0430\u0434\u0435\u043D\u0438\u044F.
+      \u041F\u0440\u0438 \u043F\u043E\u0431\u0435\u0434\u0435 \u043A\u0430\u0436\u0434\u044B\u0435
+      10 \u0432\u043E\u043B\u043D, \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0440\u0430\u0434\u0438\u0443\u0441\u0430
+      \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F \u0431\u0443\u0434\u0435\u0442
+      \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D, \u043C\u0430\u043A\u0441\u0438\u043C\u0443\u043C
+      \u0434\u043E 3-\u0433\u043E \u0443\u0440\u043E\u0432\u043D\u044F."
+    _en: Control range allows to claim mines and chests. Each 10 defeated enemy waves
+      increase the control range by 1, up to 3.
+  - _id: main_base_header
+    _ru: "\u0417\u0410\u041C\u041E\u041A"
+    _en: CASTLE
+  - _id: main_base_info
+    _ru: "\u0421\u0442\u0430\u043D\u044C\u0442\u0435 \u0435\u0434\u0438\u043D\u043E\u043F\u0440\u0430\u0432\u043D\u044B\u043C
+      \u043F\u0440\u0430\u0432\u0438\u0442\u0435\u043B\u0435\u043C \u044D\u0442\u0438\u0445
+      \u0437\u0435\u043C\u0435\u043B\u044C. \u0420\u0430\u0441\u0448\u0438\u0440\u044F\u0439\u0442\u0435
+      \u0441\u0432\u043E\u0435 \u0432\u043B\u0438\u044F\u043D\u0438\u0435 \u043F\u0443\u0442\u0435\u043C
+      \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0438 \u0444\u043E\u0440\u043F\u043E\u0441\u0442\u043E\u0432
+      \u0438 \u0441\u0440\u0430\u0436\u0430\u0439\u0442\u0435\u0441\u044C \u0441
+      \u043F\u043E\u043B\u0447\u0438\u0449\u0430\u043C\u0438 \u043C\u043E\u043D\u0441\u0442\u0440\u043E\u0432.
+      \u0423\u043B\u0443\u0447\u0448\u0430\u0439\u0442\u0435 \u0441\u0432\u043E\u0438
+      \u0431\u0430\u0448\u043D\u0438 \u0438 \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435
+      \u0443\u043C\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u044F
+      \u0431\u043E\u0435\u0432\u043E\u0439 \u043C\u043E\u0449\u0438."
+    _en: Become the sole ruler of these lands. Expand your influence by placing towers
+      and fight off the hordes of monsters. Upgrade your towers and use the cards
+      to improve your battle powers.
+  - _id: wave_complete_header
+    _ru: WAVE COMPLETE!
+    _en: WAVE COMPLETE!
+  - _id: not_enough_crystal_window_header
+    _ru: "\u041D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E
+      \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u043B\u043E\u0432"
+    _en: Not enough!
+  - _id: not_enough_crystal_window_info
+    _ru: "\u0416\u0435\u043B\u0430\u0435\u0442\u0435 \u043F\u0440\u0438\u043E\u0431\u0440\u0435\u0441\u0442\u0438
+      \u0440\u0435\u0441\u0443\u0440\u0441\u044B \u0434\u043B\u044F \u0442\u043E\u0433\u043E,
+      \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0438\u0437\u0432\u0435\u0441\u0442\u0438
+      \u0430\u043F\u0433\u0440\u0435\u0439\u0434?"
+    _en: Would you like buy crystals to complete the upgrade?
+  - _id: tutorial_unlock_first_tower_1
+    _ru: "\u041F\u043E\u043A\u043E\u0440\u044F\u0442\u044C \u0442\u0435\u0440\u0440\u0438\u0442\u043E\u0440\u0438\u044E
+      \u043C\u043E\u0436\u043D\u043E \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E
+      \u0431\u0430\u0448\u0435\u043D. \u0414\u0430\u0432\u0430\u0439 \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u043C
+      \u043D\u043E\u0432\u0443\u044E \u0431\u0430\u0448\u043D\u044E \u0437\u0434\u0435\u0441\u044C!"
+    _en: You can conquer the lands by means of the towers. Let's build a new tower
+      here!
+  - _id: tutorial_unlock_first_tower_2
+    _ru: "\u0427\u0435\u043C \u0434\u0430\u043B\u044C\u0448\u0435 \u0432\u044B \u043E\u0442
+      \u0437\u0430\u043C\u043A\u0430, \u0442\u0435\u043C \u0432\u044B\u0448\u0435
+      \u0441\u0442\u043E\u0438\u043C\u043E\u0441\u0442\u044C \u0443\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0438
+      \u0431\u0430\u0448\u043D\u0438. \u0412 \u044D\u0442\u043E\u0442 \u0440\u0430\u0437
+      \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u043C \u0435\u0435 \u0431\u0435\u0441\u043F\u043B\u0430\u0442\u043D\u043E"
+    _en: The farther you're from the castle, the higher the cost of building of a
+      tower. For now let's build it for free.
+  - _id: tutorial_first_battle_upgrade_1
+    _ru: "\u0412 \u043D\u0430\u0447\u0430\u043B\u0435 \u0431\u043E\u044F \u0438 \u0437\u0430
+      \u043A\u0430\u0436\u0434\u043E\u0433\u043E \u043F\u043E\u0431\u0435\u0436\u0434\u0435\u043D\u043D\u043E\u0433\u043E
+      \u043C\u043E\u043D\u0441\u0442\u0440\u0430 \u0442\u044B \u043F\u043E\u043B\u0443\u0447\u0430\u0435\u0448\u044C
+      \u043E\u043F\u044B\u0442. \u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439
+      \u0435\u0433\u043E, \u0447\u0442\u043E\u0431\u044B \u0443\u0441\u0438\u043B\u0438\u0442\u044C
+      \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A\u0438
+      \u0431\u0430\u0448\u043D\u0438! "
+    _en: You get experience at the start of each battle and for each defeated monster.
+      Use it to upgrade the tower stats!
+  - _id: tutorial_first_battle_upgrade_2
+    _ru: "\u0421\u0442\u043E\u0438\u0442 \u0442\u0430\u043A\u0436\u0435 \u043F\u043E\u0432\u044B\u0441\u0438\u0442\u044C
+      \u0437\u0430\u0449\u0438\u0442\u043D\u044B\u0435 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B"
+    _en: You should also increase the defense stats.
+  - _id: tutorial_first_battle_upgrade_3
+    _ru: "\u041F\u0440\u043E\u0447\u043D\u043E\u0441\u0442\u044C \u0431\u0430\u0448\u043D\u0438
+      \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442 \u0432\u044B\u0436\u0438\u0432\u0430\u0435\u043C\u043E\u0441\u0442\u044C,
+      \u0434\u0430\u0432\u0430\u0439 \u043F\u043E\u0432\u044B\u0441\u0438\u043C \u0435\u0435"
+    _en: Tower durability increases survivability, let's increase it.
+  - _id: tutorial_acceleration
+    _ru: "\u0415\u0441\u043B\u0438 \u0431\u043E\u0439 \u043A\u0430\u0436\u0435\u0442\u0441\u044F
+      \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u043C\u0435\u0434\u043B\u0435\u043D\u043D\u044B\u043C,
+      \u043C\u043E\u0436\u043D\u043E \u043F\u043E\u043C\u0435\u043D\u044F\u0442\u044C
+      \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
+    _en: If the battle seems too slow, you can change the speed.
+  - _id: tutorial_first_upgrade_meta_1
+    _ru: "\u0427\u0435\u0440\u0435\u0437 \u043C\u0430\u0441\u0442\u0435\u0440\u0441\u043A\u0443\u044E
+      \u043C\u043E\u0436\u043D\u043E \u043D\u0430\u0432\u0441\u0435\u0433\u0434\u0430
+      \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B
+      \u0431\u0430\u0448\u0435\u043D"
+    _en: You can upgrade the tower stats permanently in the workshop.
+  - _id: tutorial_first_upgrade_meta_2
+    _ru: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u0434\u0430\u0432\u0430\u0439
+      \u0434\u043E\u0431\u0430\u0432\u0438\u043C \u0431\u0430\u0448\u043D\u044F\u043C
+      \u0441\u0438\u043B\u044B \u0435\u0449\u0435 3 \u0440\u0430\u0437\u0430"
+    _en: Great, let's add power to the towers three more times
+  - _id: tutorial_first_upgrade_meta_3
+    _ru: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u0434\u0430\u0432\u0430\u0439
+      \u0434\u043E\u0431\u0430\u0432\u0438\u043C \u0431\u0430\u0448\u043D\u044F\u043C
+      \u0441\u0438\u043B\u044B \u0435\u0449\u0435 2 \u0440\u0430\u0437\u0430"
+    _en: Great, let's add power to the towers two more times
+  - _id: tutorial_first_upgrade_meta_4
+    _ru: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E, \u0434\u0430\u0432\u0430\u0439
+      \u0434\u043E\u0431\u0430\u0432\u0438\u043C \u0431\u0430\u0448\u043D\u044F\u043C
+      \u0441\u0438\u043B\u044B \u0435\u0449\u0435 1 \u0440\u0430\u0437\u0430"
+    _en: Great, let's add power to the towers one more times
+  - _id: tutorial_first_upgrade_meta_5
+    _ru: "\u042D\u0442\u0438 \u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B
+      \u043E\u0442\u043A\u0440\u043E\u044E\u0442\u0441\u044F \u043D\u0435\u043C\u043D\u043E\u0433\u043E
+      \u043F\u043E\u0437\u0436\u0435. \u041F\u0440\u043E\u0439\u0434\u0438 15 \u0432\u043E\u043B\u043D
+      \u0432 \u043B\u044E\u0431\u043E\u043C \u0441\u0440\u0430\u0436\u0435\u043D\u0438\u0438"
+    _en: These parameters will unlock a bit later. Complete 15 waves in any battle.
+  - _id: tutorial_first_info_range_1
+    _ru: "\u0421\u043C\u043E\u0442\u0440\u0438, \u044D\u0442\u043E \u0448\u0430\u0445\u0442\u0430,
+      \u043E\u043D\u0430 \u043D\u0443\u0436\u043D\u0430 \u0434\u043B\u044F \u0434\u043E\u0431\u044B\u0447\u0438
+      \u0440\u0435\u0441\u0443\u0440\u0441\u043E\u0432, \u043A\u043E\u0442\u043E\u0440\u044B\u0435
+      \u043F\u043E\u043D\u0430\u0434\u043E\u0431\u044F\u0442\u0441\u044F \u0434\u043B\u044F
+      \u0443\u0441\u0438\u043B\u0435\u043D\u0438\u044F \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A.
+      \u041D\u043E \u0441\u0435\u0439\u0447\u0430\u0441 \u043E\u043D\u0430 \u043D\u0435
+      \u043D\u0430\u0445\u043E\u0434\u0438\u0442\u0441\u044F \u043F\u043E\u0434 \u043D\u0430\u0448\u0438\u043C
+      \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u043C"
+    _en: Look, this is a mine - it is required for getting the resources for improving
+      the stats. However, it's not under our control right now.
+  - _id: tutorial_first_info_range_2
+    _ru: "\u0414\u043B\u044F \u0442\u043E\u0433\u043E, \u0447\u0442\u043E\u0431\u044B
+      \u0443\u0432\u0435\u043B\u0447\u0438\u0432\u0430\u0442\u044C \u0440\u0430\u0434\u0438\u0443\u0441,
+      \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0443\u0431\u0438\u0432\u0430\u0442\u044C
+      \u0431\u043E\u0441\u0441\u043E\u0432. \u0411\u043E\u0441\u0441\u044B \u043F\u043E\u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F
+      \u043D\u0430 10, 20 \u0438 30\u0439 \u0432\u043E\u043B\u043D\u0430\u0445."
+    _en: You need to kill the bosses to increase the range. Bosses appear in waves
+      10, 20 and 30.
+  - _id: tutorial_after_range_info_battle
+    _ru: "\u0414\u0430\u0432\u0430\u0439 \u0437\u0430\u0432\u043E\u044E\u0435\u043C
+      \u043D\u043E\u0432\u044B\u0435 \u0437\u0435\u043C\u043B\u0438. \u0412 \u0431\u043E\u0439!"
+    _en: Let's conquer new lands. To battle!
+  - _id: tutorial_new_card_1
+    _ru: "\u0412\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B\u0438 \u043D\u043E\u0432\u0443\u044E
+      \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C. \u0418\u043C\u0435\u044E\u0449\u0438\u0435\u0441\u044F
+      \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438 \u043C\u043E\u0436\u043D\u043E
+      \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0435\u0442\u044C \u0432 \u043C\u0435\u043D\u044E
+      \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439"
+    _en: You've received a new ability card. See the abilities you have in the cards
+      menu.
+  - _id: tutorial_new_card_2
+    _ru: "\u0414\u043B\u044F \u0442\u043E\u0433\u043E \u0447\u0442\u043E\u0431\u044B
+      \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C,
+      \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u0442\u044C
+      \u0441\u043B\u043E\u0442"
+    _en: Unlock the slot to use the ability.
+  - _id: tutorial_new_card_3
+    _ru: "\u0414\u043E\u0431\u0430\u0432\u044C \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0443
+      \u0432 \u0441\u0432\u043E\u0431\u043E\u0434\u043D\u044B\u0439 \u0441\u043B\u043E\u0442,
+      \u043D\u0430\u0436\u0430\u0432 \u043D\u0430 \u043D\u0435\u0435."
+    _en: Select the free slot to add the card there.
+  - _id: tutorial_new_card_4
+    _ru: "\u041E\u0442\u043B\u0438\u0447\u043D\u043E! \u0422\u0435\u043F\u0435\u0440\u044C
+      \u0442\u0432\u043E\u0438 \u0431\u0430\u0448\u043D\u0438 \u0441\u0442\u0430\u043B\u0438
+      \u043D\u0430\u043C\u043D\u043E\u0433\u043E \u0441\u0438\u043B\u044C\u043D\u0435\u0435,
+      \u0434\u0430\u0432\u0430\u0439 \u0432\u0435\u0440\u043D\u0435\u043C\u0441\u044F
+      \u043D\u0430 \u043A\u0430\u0440\u0442\u0443"
+    _en: Great! Now your towers have become a lot stronger, let's go back to the
+      map.
+  - _id: tutorial_first_chest_1
+    _ru: "\u0421\u043C\u043E\u0442\u0440\u0438, \u043F\u043E\u0434 \u043D\u0430\u0448\u0438\u043C
+      \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u0435\u043C \u043E\u043A\u0430\u0437\u0430\u043B\u0438\u0441\u044C
+      \u0441\u043E\u043A\u0440\u043E\u0432\u0438\u0449\u0430 \u044D\u0442\u0438\u0445
+      \u0437\u0435\u043C\u0435\u043B\u044C!"
+    _en: Look, the treasures of these lands are under our control!
+  - _id: tutorial_first_chest_2
+    _ru: "\u041E\u0442\u043B\u0438\u0447\u043D\u0430\u044F \u0434\u043E\u0431\u044B\u0447\u0430!
+      \u0427\u0442\u043E\u0431\u044B \u0441\u043E\u0431\u0440\u0430\u0442\u044C \u0435\u0435
+      \u043D\u0430\u0436\u043C\u0438 \u043A\u043D\u043E\u043F\u043A\u0443"
+    _en: Great loot! Tap to claim it
+  - _id: tutorial_first_mine_1
+    _ru: "\u0428\u0430\u0445\u0442\u0430 \u0432 \u0440\u0430\u0434\u0438\u0443\u0441\u0435
+      \u043A\u043E\u043D\u0442\u0440\u043E\u043B\u044F, \u0442\u0435\u043F\u0435\u0440\u044C
+      \u043E\u043D\u0430 \u043F\u0440\u0438\u043D\u043E\u0441\u0438\u0442 \u043D\u0430\u043C
+      \u0434\u043E\u0445\u043E\u0434"
+    _en: The mine is in the control range, now it gains income for you
+  - _id: tutorial_first_mine_2
+    _ru: "\u041A\u0440\u0438\u0441\u0442\u0430\u043B\u043B\u044B \u043D\u0443\u0436\u043D\u044B
+      \u0434\u043B\u044F \u0430\u043F\u0433\u0440\u0435\u0439\u0434\u0430 \u0431\u0430\u0448\u0435\u043D.
+      \u041D\u0435 \u0437\u0430\u0431\u044B\u0432\u0430\u0439 \u0438\u0445 \u0441\u043E\u0431\u0438\u0440\u0430\u0442\u044C!"
+    _en: Crystals are needed for upgrading the tower. Don't forget to collect them!
+  - _id: tutorial_first_upgrade_currency
+    _ru: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439\u0442\u0435 \u0441\u0432\u043E\u0438
+      \u043C\u043E\u043D\u0435\u0442\u044B, \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043D\u044B\u0435
+      \u0432 \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0435\u043C \u0431\u043E\u044E,
+      \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0432\u0441\u0435\u0433\u0434\u0430
+      \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A\u0438."
+    _en: Use your coins you've earned in previous battle to upgrade the characteristics
+      forever.
+  - _id: tutorial_first_battle_currency
+    _ru: "\u041E\u043F\u044B\u0442 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u0435\u0442
+      \u0432\u0430\u043C \u043F\u0440\u043E\u043A\u0430\u0447\u0438\u0432\u0430\u0442\u044C\u0441\u044F
+      \u0432 \u0431\u043E\u044E. \u041F\u043E\u0441\u043B\u0435 \u0431\u043E\u044F
+      \u044D\u0442\u0430 \u043F\u0440\u043E\u043A\u0430\u0447\u043A\u0430 \u0438\u0441\u0447\u0435\u0437\u043D\u0435\u0442.
+      \u0412 \u043C\u0438\u0440\u043D\u043E\u0439 \u0444\u0430\u0437\u0435 \u0432\u044B
+      \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u043A\u0430\u0447\u0430\u0442\u044C\u0441\u044F
+      \u0437\u0430 \u043C\u043E\u043D\u0435\u0442\u044B, \u044D\u0442\u0430 \u043F\u0440\u043E\u043A\u0430\u0447\u043A\u0430
+      \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u043D\u0430\u0432\u0441\u0435\u0433\u0434\u0430."
+    _en: Experience allows you to upgrade parameters during a battle. After the battle,
+      the parameters will be reset. In the peaceful phase, you can upgrade for coins,
+      this upgrade will remain forever.
+  - _id: no_internet_window_header
+    _ru: "\u041D\u0435\u0442 \u0441\u043E\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u044F
+      \u0441 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442!"
+    _en: No internet conection!
+  - _id: no_internet_window_info
+    _ru: "\u041F\u0440\u043E\u0432\u0435\u0440\u044C\u0442\u0435 \u0441\u043E\u0435\u0434\u0438\u043D\u0435\u043D\u0438\u0435
+      \u0438 \u043F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0441\u043D\u043E\u0432\u0430"
+    _en: Please check your network and try again
+  - _id: revive_window_header
+    _ru: "\u0412\u043E\u0441\u043A\u0440\u0435\u0441\u043D\u0443\u0442\u044C \u0441
+      50% \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F!"
+    _en: Revive with 50% of HP!
+  - _id: revive_window_info
+    _ru: "\u041E\u0441\u0442\u0430\u043B\u0441\u044F \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439
+      \u0440\u044B\u0432\u043E\u043A!"
+    _en: You are almost there!
+  - _id: no_ads_window_header
+    _ru: "\u041E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043F\u0435\u0440\u0438\u043E\u0434\u0438\u0447\u0435\u0441\u043A\u0443\u044E
+      <color=#A3FFB7>\u0440\u0435\u043A\u043B\u0430\u043C\u0443</color>"
+    _en: Remove forced <color=#A3FFB7>ADS</color>
+  - _id: no_ads_window_reward_header
+    _ru: "\u0411\u043E\u043D\u0443\u0441:"
+    _en: 'Bonus:'
+  - _id: no_ads_window_reward_info
+    _ru: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 \u043D\u0430\u0433\u0440\u0430\u0434\u0443
+      \u0437\u0430 \u043F\u0440\u043E\u0441\u043C\u043E\u0442\u0440 \u0440\u0435\u043A\u043B\u0430\u043C\u044B"
+    _en: Get a reward for watching video ADS
+  - _id: map_grand_chest_window_info
+    _ru: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u0435\u043C!\\n
+      \u0412\u044B \u043D\u0430\u0448\u043B\u0438\\n\u041B\u0435\u0433\u0435\u043D\u0434\u0430\u0440\u043D\u043E\u0435
+      \u0421\u043E\u043A\u0440\u043E\u0432\u0438\u0449\u0435!"
+    _en: Congratulations!\n You have captured\nThe Legendary Treasure!
+  - _id: grand_chest_active_window_header
+    _ru: "\u041B\u0435\u0433\u0435\u043D\u0434\u0430\u0440\u043D\u043E\u0435 \u0441\u043E\u043A\u0440\u043E\u0432\u0438\u0449\u0435"
+    _en: Legendary Treasure
+  - _id: grand_chest_active_window_info
+    _ru: "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0439\u0442\u0435\u0441\u044C
+      \u043F\u043E\u0437\u0436\u0435 \u0437\u0430 \u043D\u043E\u0432\u044B\u043C\u0438
+      \u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0430\u043C\u0438!"
+    _en: Come back for the new cards later!
+  - _id: restore_purchase_success_info
+    _ru: "\u0412\u0441\u0435 \u043F\u043E\u043A\u0443\u043F\u043A\u0438 \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u044B"
+    _en: All purchases have been restored
+  - _id: restore_purchase_failed_info
+    _ru: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435
+      \u043F\u043E\u043A\u0443\u043F\u043E\u043A \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C"
+    _en: Failed to restore purchases
+  - _id: rate_us_window_header
+    _ru: "\u041F\u043E\u043D\u0440\u0430\u0432\u0438\u043B\u0430\u0441\u044C \u0438\u0433\u0440\u0430?"
+    _en: Having fun?
+  - _id: rate_us_window_info
+    _ru: "\u041E\u0446\u0435\u043D\u0438 \u043D\u0430\u0441!"
+    _en: Rate us!
+  - _id: rate_us_window_rate_btn
+    _ru: "\u041E\u0446\u0435\u043D\u0438\u0442\u044C"
+    _en: Rate
+  - _id: rate_us_window_later_btn
+    _ru: "\u041F\u043E\u0437\u0436\u0435"
+    _en: Later

@@ -1,0 +1,25 @@
+-keep class com.unity3d.player.** { *; }
+-keep class com.gameanalytics.** { *; }
+-keep class com.devtodev.** { *; }
+-dontwarn com.devtodev.**
+-keep class com.appsflyer.** { *; }
+-keep class com.appsflyer.unity.** { *; }
+-keep class com.appsflyer.attribution.** { *; }
+-keep class com.appsflyer.deeplink.** { *; }
+-keep class com.appsflyer.internal.** { *; }
+-keep class com.appsflyer.share.** { *; }
+-keep class com.facebook.** { *; }
+-keep class pixel.archer.** { *; }
+-keep class com.ironsource.unity.** { *; }
+-keep class com.google.android.gms.** { *; }
+-keep class com.google.android.gms.ads.** { *; }
+-keep class com.android.installreferrer.** { *; }
+-keep class com.google.googlesignin.** { *; }
+-keep public class com.adjust.sdk.** { *; }
+-keep class android.net.ConnectivityManager.** { *; }
+-keep class com.google.android.instantapps.InstantApps { *; }
+-keepclassmembers class com.google.android.instantapps.InstantApps{*; }
+-keep class com.google.android.gms.common.ConnectionResult {
+    int SUCCESS;	
+}
+-keep class com.yasirkula.unity.* { *; }

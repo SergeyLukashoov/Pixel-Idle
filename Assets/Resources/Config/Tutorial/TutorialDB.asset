@@ -1,0 +1,355 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20861ea145af1fb4ca85d824b1b36f51, type: 3}
+  m_Name: TutorialDB
+  m_EditorClassIdentifier: 
+  _tutorialInfos:
+  - TutorialId: 10
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_unlock_first_tower_1
+      TargetId: Tower1
+      InfoTextPos: {x: 0, y: 600}
+      TargetSizeShift: {x: 30, y: 30}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 11
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_unlock_first_tower_2
+      TargetId: ButtonUnlock
+      InfoTextPos: {x: 0, y: 540}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 12
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 1
+      NeedHideHand: 1
+      InfoTextId: tutorial_first_battle_currency
+      TargetId: CurrencyObject
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_battle_upgrade_1
+      TargetId: AttackUpgrade
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_battle_upgrade_2
+      TargetId: DefenceTab
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 0, y: 0}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_battle_upgrade_3
+      TargetId: HealthUpgrade
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 13
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_acceleration
+      TargetId: AccelerateRoot
+      InfoTextPos: {x: 0, y: 640}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 14
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_upgrade_meta_1
+      TargetId: UpgradeScreen
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 4, y: 4}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 15
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 1
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_upgrade_currency
+      TargetId: HudTop
+      InfoTextPos: {x: 0, y: 0}
+      TargetSizeShift: {x: 0, y: 0}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: -50, y: -250}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_upgrade_meta_2
+      TargetId: AttackMeta
+      InfoTextPos: {x: 0, y: -340}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 0
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_upgrade_meta_3
+      TargetId: AttackMeta
+      InfoTextPos: {x: 0, y: -340}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 0
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_upgrade_meta_4
+      TargetId: AttackMeta
+      InfoTextPos: {x: 0, y: -340}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_upgrade_meta_5
+      TargetId: DefeatMoreWaves
+      InfoTextPos: {x: 0, y: -480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 16
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_info_range_1
+      TargetId: Mine
+      InfoTextPos: {x: 0, y: -480}
+      TargetSizeShift: {x: 30, y: 30}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_info_range_2
+      TargetId: Tower2
+      InfoTextPos: {x: 0, y: -480}
+      TargetSizeShift: {x: 30, y: 30}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 17
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_after_range_info_battle
+      TargetId: ButtonPlay
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 18
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_new_card_1
+      TargetId: CardsScreen
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 0, y: 0}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 19
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_new_card_2
+      TargetId: FirstActiveSlot
+      InfoTextPos: {x: 0, y: -480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_new_card_3
+      TargetId: FirstCollectionSlot
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_new_card_4
+      TargetId: ButtonBattle
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 0, y: 0}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 20
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 1
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_chest_1
+      TargetId: Chest
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 21
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_chest_2
+      TargetId: ButtonCollect
+      InfoTextPos: {x: 0, y: 480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 22
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_mine_1
+      TargetId: MineInRange
+      InfoTextPos: {x: 0, y: -480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}
+  - TutorialId: 23
+    TutorialStepInfo:
+    - TutorialStepId: 1
+      NeedFade: 1
+      NeedRebuild: 1
+      NeedDynamicPos: 0
+      NeedHandCustomPos: 0
+      SkipByClick: 0
+      NeedHideHand: 0
+      InfoTextId: tutorial_first_mine_2
+      TargetId: MineTimer
+      InfoTextPos: {x: 0, y: -480}
+      TargetSizeShift: {x: 60, y: 60}
+      TargetPosShift: {x: 0, y: 0}
+      CustomHandShift: {x: 0, y: 0}

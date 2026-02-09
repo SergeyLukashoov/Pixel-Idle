@@ -1,0 +1,27 @@
+namespace Core.Controllers.Windows {
+	public enum WindowType {
+		EndRunWindow           = 1,
+		StatHintWindow         = 2,
+		CardHintWindow         = 3,
+		TutorialWindow         = 4,
+		UnlockWorkshopWindow   = 5,
+		UnlockCardWindow       = 6,
+		UpgradeCardWindow      = 7,
+		ExitRunWindow          = 8,
+		InfoWindow             = 9,
+		TowerWindow            = 10,
+		MapChestWindow         = 11,
+		InfoHeaderWindow       = 12,
+		SettingsWindow         = 13,
+		MineWindow             = 14,
+		NotEnoughCrystalWindow = 15,
+		AdsEditorOverlayWindow = 16,
+		NoInternetWindow       = 17,
+		ReviveWindow           = 18,
+		NoAdsWindow            = 19,
+		WaitWindow             = 20,
+		MapGrandChestWindow    = 21,
+		GrandChestActiveWindow = 22,
+		RateUsWindow           = 23,
+	}
+}

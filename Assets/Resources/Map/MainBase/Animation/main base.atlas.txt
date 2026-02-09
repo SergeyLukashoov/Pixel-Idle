@@ -1,0 +1,16 @@
+main base.png
+size:256,512
+filter:Linear,Linear
+pma:true
+main base/base
+bounds:2,2,124,124
+offsets:1,1,126,126
+main base/baseIn
+bounds:128,14,112,112
+offsets:7,7,126,126
+main base/circle
+bounds:2,128,163,163
+offsets:1,1,165,165
+main base/crown
+bounds:167,205,85,86
+offsets:1,1,87,88

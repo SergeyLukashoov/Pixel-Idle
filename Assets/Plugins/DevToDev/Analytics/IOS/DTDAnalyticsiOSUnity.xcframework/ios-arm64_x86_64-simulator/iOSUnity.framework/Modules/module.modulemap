@@ -1,0 +1,11 @@
+framework module iOSUnity {
+  umbrella header "iOSUnity.h"
+  export *
+
+  module * { export * }
+}
+
+module iOSUnity.Swift {
+  header "iOSUnity-Swift.h"
+  requires objc
+}

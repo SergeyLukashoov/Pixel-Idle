@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d840927e62724324d9c5f0075bcc5e1c, type: 3}
+  m_Name: MineDB
+  m_EditorClassIdentifier: 
+  _mineInfos:
+  - LevelUp: 1
+    ProduceCount: 1
+    ProduceTime: 60
+    MaxCapacity: 480
+  - LevelUp: 2
+    ProduceCount: 2
+    ProduceTime: 60
+    MaxCapacity: 960
+  - LevelUp: 3
+    ProduceCount: 3
+    ProduceTime: 60
+    MaxCapacity: 1440
+  - LevelUp: 4
+    ProduceCount: 4
+    ProduceTime: 60
+    MaxCapacity: 1920
+  - LevelUp: 5
+    ProduceCount: 5
+    ProduceTime: 60
+    MaxCapacity: 2400
+  - LevelUp: 6
+    ProduceCount: 6
+    ProduceTime: 60
+    MaxCapacity: 2880
+  - LevelUp: 7
+    ProduceCount: 7
+    ProduceTime: 60
+    MaxCapacity: 3360
+  - LevelUp: 8
+    ProduceCount: 8
+    ProduceTime: 60
+    MaxCapacity: 3840

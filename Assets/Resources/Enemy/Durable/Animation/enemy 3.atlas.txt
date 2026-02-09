@@ -1,0 +1,25 @@
+enemy 3.png
+size:1024,512
+filter:Linear,Linear
+pma:true
+enemy 3/body
+bounds:280,3,276,334
+enemy 3/body_Dem
+bounds:2,3,276,334
+enemy 3/eye
+bounds:558,2,164,164
+rotate:180
+enemy 3/eye_Dem
+bounds:557,167,164,164
+enemy 3/leg
+bounds:821,234,23,98
+enemy 3/leg_Dem
+bounds:821,134,23,98
+enemy 3/neck
+bounds:772,139,47,198
+enemy 3/neck_Dem
+bounds:723,85,47,198
+enemy 3/pupil
+bounds:772,60,74,75
+enemy 3/pupil_Dem
+bounds:719,3,74,75
