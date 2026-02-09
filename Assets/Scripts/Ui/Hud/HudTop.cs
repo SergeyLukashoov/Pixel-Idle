@@ -30,13 +30,7 @@ namespace Ui.Hud {
 		}
 
 		public bool IsNeedAdsButton() {
-			if (!GameController.Instance.IsCanShowInterstitial())
-				return false;
-
-			if (GameController.Instance.Player.Flags.PlayedCount < 3)
-				return false;
-
-			return true;
+			return false;
 		}
 
 		public void SetNoAdsButtonVisible(bool visible) {

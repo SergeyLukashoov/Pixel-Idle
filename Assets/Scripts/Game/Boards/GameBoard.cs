@@ -10,7 +10,6 @@ using Core.Controllers;
 using Core.Controllers.Tutorial;
 using Core.Controllers.Windows;
 using Core.Utils;
-using DevToDev.Analytics;
 using Game.Ability;
 using Game.Back;
 using Game.Bullet;
@@ -682,13 +681,7 @@ namespace Game.Boards {
 		}
 
 		private bool IsCanReviveAds() {
-			if (_playerFlags.PlayedCount < 2)
-				return false;
-
-			if (!_needShowReviveWindow)
-				return false;
-
-			return true;
+			return false;
 		}
 
 		private void ShowReviveWindow() {

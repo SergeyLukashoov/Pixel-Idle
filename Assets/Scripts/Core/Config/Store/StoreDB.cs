@@ -2,9 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Purchasing;
 
 namespace Core.Config.Store {
+	public enum ProductType {
+		Consumable,
+		NonConsumable,
+		Subscription
+	}
+
 	[Serializable]
 	public class ProductData {
 		public ProductType _type;

@@ -44,17 +44,11 @@ namespace Window {
 #if UNITY_IOS
 			if (!needBtns) {
 				needBtns = true;
-
 				_buttonHome.gameObject.SetActive(false);
 				_buttonResume.gameObject.SetActive(false);
 			}
-			else {
-				_buttonRestorePurchase.gameObject.SetActive(false);
-			}
-#else
-			_buttonRestorePurchase.gameObject.SetActive(false);
 #endif
-			
+			_buttonRestorePurchase.gameObject.SetActive(false);
 			_buttonsRoot.SetActive(needBtns);
 		}
 		

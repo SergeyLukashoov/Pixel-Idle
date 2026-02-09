@@ -80,18 +80,15 @@ namespace Window {
 			_buttonClose.onClick.AddListener(OnCloseClick);
 			_buttonCloseIcon.onClick.AddListener(OnCloseClick);
 			_buttonTutorialGet.onClick.AddListener(OnCloseClick);
-			_buttonAdsDoubleReward.onClick.AddListener(ShowX2RewardAds);
-			_buttonShowAds.onClick.AddListener(OnShowAdsClick);
+			_buttonAdsDoubleReward.onClick.AddListener(OnX2CollectClick);
+			_buttonShowAds.gameObject.SetActive(false);
 
-			var needAdsBtn = _settings.Chest.Type == MapChestType.RewardedAds;
-			_buttonAdsDoubleReward.gameObject.SetActive(!needAdsBtn);
-			_buttonCloseIcon.gameObject.SetActive(needAdsBtn);
-			_buttonShowAds.gameObject.SetActive(needAdsBtn);
+			var isDefaultChest = _settings.Chest.Type == MapChestType.Default;
+			var showX2 = isDefaultChest && _tutorialController.IsTutorialComplete(TutorialId.FirstChestCollect);
+			_buttonAdsDoubleReward.gameObject.SetActive(showX2);
 
-			if (!_tutorialController.IsTutorialComplete(TutorialId.FirstChestCollect) && 
-			    _settings.Chest.Type != MapChestType.RewardedAds) {
+			if (!_tutorialController.IsTutorialComplete(TutorialId.FirstChestCollect) && isDefaultChest) {
 				_buttonAdsDoubleReward.gameObject.SetActive(false);
-				_buttonShowAds.gameObject.SetActive(false);
 				_buttonTutorialGet.gameObject.SetActive(true);
 				_tapToContinueObj.SetActive(false);
 				_popUpRoot.gameObject.SetActive(false);
@@ -107,7 +104,16 @@ namespace Window {
 			
 			if (_settings.Chest.Type == MapChestType.Default)
 				_settings.Chest.CollectChest();
+			else if (_settings.Chest.Type == MapChestType.RewardedAds)
+				_settings.Chest.CollectAdChest();
 			
+			Hide();
+		}
+
+		private void OnX2CollectClick() {
+			if (_onShowAds)
+				return;
+			_settings.Chest.CollectChest(2);
 			Hide();
 		}
 		
@@ -123,25 +129,9 @@ namespace Window {
 			btn.spriteState           = spState;
 		}
 
-		private void OnShowAdsClick() {
-			if (OnClose)
-				return;
-		}
-
 		private void OnAdsGetReward() {
 			_onShowAds = false;
 			_settings.Chest.CollectAdChest();
-			Hide();
-		}
-
-		private void ShowX2RewardAds() {
-			if (OnClose)
-				return;
-		}
-
-		private void OnX2RewardAdsGet() {
-			_onShowAds = false;
-			_settings.Chest.CollectChest(2);
 			Hide();
 		}
 

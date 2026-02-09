@@ -47,7 +47,6 @@ namespace Core.Controllers {
 		private bool _isNeedSave               = false;
 		private bool _needCheckScreenSafeArea  = true;
 		private bool _needApplaySafeArea       = false;
-		private bool _needSendAnalyticsOnStart = true;
 
 		private float _safeAreaHudShift = 0f;
 		private float _gamePlayTime     = 0f;
@@ -73,10 +72,7 @@ namespace Core.Controllers {
 		public bool                NeedShowRateUsWindow { get; set; } = false;
 
 		public bool IsCanShowInterstitial() {
-			if (_player.Flags.NonConsumableItems.Contains(StoreProductNames.NO_ADS))
-				return false;
-
-			return true;
+			return false;
 		}
 
 		public bool IsCanClick() {
@@ -150,16 +146,6 @@ namespace Core.Controllers {
 
 		private void Awake() {
 			Init();
-		}
-
-		private void Start() {
-#if VOODOO
-			TinySauce.SubscribeOnInitFinishedEvent(OnTinySauceConsentGiven);
-#endif
-		}
-
-		private void OnTinySauceConsentGiven(bool adConsent, bool analyticsConsent) {
-			Debug.Log($"[TinySauce] Consent given: AdConsent={adConsent}; AnalyticsConsent={analyticsConsent}");
 		}
 
 		private void Init() {

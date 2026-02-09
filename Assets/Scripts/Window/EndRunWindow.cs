@@ -63,12 +63,10 @@ namespace Window {
 		}
 
 		private void UpdateView() {
-			var isAdsNeeded = GameController.Instance.Player.Flags.PlayedCount > 1;
-
-			_buttonOk.gameObject.SetActive(!isAdsNeeded);
-			_buttonShowAds.gameObject.SetActive(isAdsNeeded);
-			_adsRewardInfo.SetActive(isAdsNeeded);
-			_tapToContinue.SetActive(isAdsNeeded);
+			_buttonOk.gameObject.SetActive(true);
+			_buttonShowAds.gameObject.SetActive(false);
+			_adsRewardInfo.SetActive(false);
+			_tapToContinue.SetActive(false);
 		}
 
 		private bool IsAdsAvailable() {

@@ -54,26 +54,18 @@ namespace Tools.Editor {
 
 		[MenuItem("Tools/Builder/Android/Azur/Build Prod")]
 		private static void BuildAndroidProdAzur() {
-			var depList = Utility.GetDefaultDependencies();
-			depList.Add("APPMETRICA");
-
-			Builder.Builder.BuildAndroidProd(depList.ToArray());
+			Builder.Builder.BuildAndroidProd(Utility.GetDefaultDependencies().ToArray());
 		}
 
 		[MenuItem("Tools/Builder/Android/Azur/Build Cheater")]
 		private static void BuildAndroidCheaterAzur() {
-			var depList = Utility.GetDefaultDependencies(true);
-			depList.Add("APPMETRICA");
-			
-			Builder.Builder.BuildAndroidCheater(depList.ToArray());
+			Builder.Builder.BuildAndroidCheater(Utility.GetDefaultDependencies(true).ToArray());
 		}
 		
 		[MenuItem("Tools/Builder/Android/Azur/Build No Ads")]
 		private static void BuildAndroidCheaterAzurNoAds() {
 			var depList = Utility.GetDefaultDependencies(true);
-			depList.Add("APPMETRICA");
 			depList.Add("FAKE_ADS");
-
 			Builder.Builder.BuildAndroidCheater(depList.ToArray());
 		}
 
@@ -83,24 +75,12 @@ namespace Tools.Editor {
 
 		[MenuItem("Tools/Builder/Android/Voodoo/Build Prod")]
 		private static void BuildAndroidProdVoodoo() {
-			var depList = Utility.GetDefaultDependencies();
-			depList.Add("APPSFLYER");
-			depList.Add("GAMEANALYTICS");
-			depList.Add("APPMETRICA");
-			depList.Add("VOODOO");
-			
-			Builder.Builder.BuildAndroidProd(depList.ToArray());
+			Builder.Builder.BuildAndroidProd(Utility.GetDefaultDependencies().ToArray());
 		}
 
 		[MenuItem("Tools/Builder/Android/Voodoo/Build Cheater")]
 		private static void BuildAndroidCheaterVoodoo() {
-			var depList = Utility.GetDefaultDependencies(true);
-			depList.Add("APPSFLYER");
-			depList.Add("GAMEANALYTICS");
-			depList.Add("APPMETRICA");
-			depList.Add("VOODOO");
-			
-			Builder.Builder.BuildAndroidCheater(depList.ToArray());
+			Builder.Builder.BuildAndroidCheater(Utility.GetDefaultDependencies(true).ToArray());
 		}
 
 		#endregion
@@ -109,22 +89,12 @@ namespace Tools.Editor {
 
 		[MenuItem("Tools/Builder/Android/Boombit/Build Prod")]
 		private static void BuildAndroidProdBoombit() {
-			var depList = Utility.GetDefaultDependencies();
-			depList.Add("APPSFLYER");
-			depList.Add("GAMEANALYTICS");
-			depList.Add("BOOMBIT");
-			
-			Builder.Builder.BuildAndroidProd(depList.ToArray());
+			Builder.Builder.BuildAndroidProd(Utility.GetDefaultDependencies().ToArray());
 		}
 
 		[MenuItem("Tools/Builder/Android/Boombit/Build Cheater")]
 		private static void BuildAndroidCheaterBoombit() {
-			var depList = Utility.GetDefaultDependencies(true);
-			depList.Add("APPSFLYER");
-			depList.Add("GAMEANALYTICS");
-			depList.Add("BOOMBIT");
-			
-			Builder.Builder.BuildAndroidCheater(depList.ToArray());
+			Builder.Builder.BuildAndroidCheater(Utility.GetDefaultDependencies(true).ToArray());
 		}
 
 		#endregion

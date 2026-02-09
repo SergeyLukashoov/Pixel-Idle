@@ -5,7 +5,6 @@ using Config.Player;
 using Core.Config;
 using Core.Controllers;
 using Core.Controllers.Save;
-using DevToDev.Analytics;
 using Game.Boards;
 using Game.Cards;
 using UnityEngine;

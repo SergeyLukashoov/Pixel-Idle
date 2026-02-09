@@ -12,17 +12,9 @@ namespace Core.Utils {
 		private static readonly System.Random Random = new System.Random();
 
 		public static List<string> GetDefaultDependencies(bool needCheater = false) {
-			var depList = new List<string> {
-				"HARDCORE",
-				"APPSFLYER",
-				"GAMEANALYTICS"
-			};
-
+			var depList = new List<string> { "HARDCORE" };
 			if (needCheater)
 				depList.Add("CHEATER");
-			else
-				depList.Add("DEVTODEV");
-
 			return depList;
 		}
 
