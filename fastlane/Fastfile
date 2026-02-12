@@ -85,9 +85,10 @@ platform :ios do
   desc "Install cocoapods"
     lane :install_pods do
       cocoapods(
-          clean: true,
+          clean_install: true,
           use_bundle_exec: false,
-          repo_update: true,
+          repo_update: false,
+          try_repo_update_on_error: true,
           podfile: "#{ENV['IOS_BUILD_PATH']}/iOS/Podfile"
     )
   end
