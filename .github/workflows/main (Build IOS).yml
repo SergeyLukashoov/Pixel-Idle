@@ -171,9 +171,33 @@ jobs:
             else
               echo "ARCHIVE FAILED marker not found"
             fi
+            echo "---- Context near CompileStoryboard ----"
+            CLINE=$(grep -n "CompileStoryboard .*LaunchScreen-iPhone.storyboard" "$LOG" | tail -n1 | cut -d: -f1 || true)
+            if [ -n "$CLINE" ]; then
+              START=$((CLINE-40)); [ $START -lt 1 ] && START=1
+              END=$((CLINE+80))
+              sed -n "${START},${END}p" "$LOG"
+            else
+              echo "CompileStoryboard marker not found"
+            fi
+            echo "---- Log tail ----"
+            tail -n 200 "$LOG" || true
           else
             echo "Gym log not found"
             ls -la "$HOME/Library/Logs/gym" || true
+          fi
+
+      - name: Re-run ibtool for LaunchScreen diagnostics
+        if: always()
+        shell: bash
+        run: |
+          STORYBOARD="build/iOS/iOS/LaunchScreen-iPhone.storyboard"
+          if [ -f "$STORYBOARD" ]; then
+            echo "Running ibtool diagnostics on $STORYBOARD"
+            xcrun ibtool --errors --warnings --notices --output-format human-readable-text "$STORYBOARD" || true
+          else
+            echo "Storyboard not found: $STORYBOARD"
+            find build -name "LaunchScreen-iPhone.storyboard" -print || true
           fi
 
       - name: Upload IPA
