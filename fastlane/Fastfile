@@ -2,7 +2,7 @@ org, repo = (ENV["GITHUB_REPOSITORY"]||"").split("/")
 match_org, match_repo = (ENV["MATCH_REPOSITORY"]||"").split("/")
 
 #before_all do
-#  xcversion(version: "14.2.0")
+  #xcversion(version: "16.2.0")
 #end
 
 platform :ios do
@@ -26,14 +26,14 @@ platform :ios do
     )
 
     main_app_bundle_id = ENV["IOS_BUNDLE_ID"]
-    #extension_bundle_id = "#{ENV["IOS_BUNDLE_ID"]}.OneSignalNotificationServiceExtension"
+    extension_bundle_id = "#{ENV["IOS_BUNDLE_ID"]}.notifications"
 
     match(
       type: "appstore",
       storage_mode: "git",
       git_url: "git@github.com:#{match_org}/#{match_repo}.git",
-      #app_identifier: [main_app_bundle_id, extension_bundle_id],
-      app_identifier: [main_app_bundle_id],
+      app_identifier: [main_app_bundle_id, extension_bundle_id],
+      #app_identifier: [main_app_bundle_id],
       readonly: false
     )
   end
@@ -107,15 +107,15 @@ platform :ios do
     )
 
     # Manual Signing for OneSignalNotificationServiceExtension
-    #update_code_signing_settings(
-    #  use_automatic_signing: false,
-    #  team_id: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}_appstore_team-id"],
-    #  code_sign_identity: "iPhone Distribution",
-    #  targets: "OneSignalNotificationServiceExtension",
-    #  path: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
-    #  profile_name: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}.OneSignalNotificationServiceExtension_appstore_profile-name"],
-    #  profile_uuid: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}.OneSignalNotificationServiceExtension_appstore"]
-    #)
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      team_id: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}_appstore_team-id"],
+      code_sign_identity: "iPhone Distribution",
+      targets: "notifications",
+      path: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
+      profile_name: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}.notifications_appstore_profile-name"],
+      profile_uuid: ENV["sigh_#{ENV['IOS_BUNDLE_ID']}.notifications_appstore"]
+    )
 
     update_code_signing_settings(
       use_automatic_signing: false,
@@ -133,13 +133,14 @@ platform :ios do
      increment_build_number({ build_number: latest_testflight_build_number(version: version_number, app_identifier: ENV['IOS_BUNDLE_ID']) + 1, xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj"}) 
     
     # Install pods
-    #install_pods
+    install_pods
 
     build_app( #alias: gym
-      #workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
-      project: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
+      workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
+      #project: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
       scheme: 'Unity-iPhone',
       xcargs: '-allowProvisioningUpdates',
+      output_directory: "build/iOS/ipa_out",
       #destination: 'generic/platform=iOS' # Виправити формат
       #destination: "platform=iOS Simulator, id=0FA23C4A-0E4A-4F03-9F6C-32122603E2DA, OS=16.2, name=iPhone 14"
       export_options: {
