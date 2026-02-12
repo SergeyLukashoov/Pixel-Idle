@@ -1,9 +1,10 @@
 org, repo = (ENV["GITHUB_REPOSITORY"]||"").split("/")
 match_org, match_repo = (ENV["MATCH_REPOSITORY"]||"").split("/")
 
-#before_all do
-  #xcversion(version: "16.2.0")
-#end
+before_all do
+  # CI image can contain multiple Xcode versions; pin one to avoid nondeterministic builds.
+  xcode_select(ENV["XCODE_PATH"] || "/Applications/Xcode_16.4.app")
+end
 
 platform :ios do
   lane :init_ci do
