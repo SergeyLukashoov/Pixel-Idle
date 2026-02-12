@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "1091717114465",
+    "project_id": "pixel-archer",
+    "storage_bucket": "pixel-archer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091717114465:ios:358d0c257a256fc43c1820",
+        "android_client_info": {
+          "package_name": "com.chipshoy.PixelArcher"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOmtAKfVKMgqHlwVYg_Sr6PR-zsQSnUyw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
