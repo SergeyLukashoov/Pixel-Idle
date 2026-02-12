@@ -113,7 +113,7 @@ jobs:
       ###################
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '16.3.0'
+          xcode-version: '16.4.0'
 
       - name: Список Xcode targets
         run: |
@@ -150,7 +150,8 @@ jobs:
           sed -i '' 's/-mno-thumb//g' "$IOS_BUILD_PATH/iOS/Unity-iPhone.xcodeproj/project.pbxproj" || sed -i 's/-mno-thumb//g' "$IOS_BUILD_PATH/iOS/Unity-iPhone.xcodeproj/project.pbxproj"
           bundle install
           #bundle exec fastlane ios release
-          bundle exec fastlane ios beta
+          set -o pipefail
+          bundle exec fastlane ios beta 2>&1 | tee fastlane-output.log
           #bundle exec fastlane ios build
 
       - name: Print iOS build errors
@@ -194,11 +195,30 @@ jobs:
           STORYBOARD="build/iOS/iOS/LaunchScreen-iPhone.storyboard"
           if [ -f "$STORYBOARD" ]; then
             echo "Running ibtool diagnostics on $STORYBOARD"
-            xcrun ibtool --errors --warnings --notices --output-format human-readable-text "$STORYBOARD" || true
+            DEVELOPER_DIR="/Applications/Xcode_16.4.app/Contents/Developer" \
+            xcrun --sdk iphoneos ibtool --errors --warnings --notices --output-format human-readable-text "$STORYBOARD" || true
           else
             echo "Storyboard not found: $STORYBOARD"
             find build -name "LaunchScreen-iPhone.storyboard" -print || true
           fi
+
+      - name: Collect iOS diagnostic logs
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p diagnostics
+          cp -f fastlane-output.log diagnostics/ 2>/dev/null || true
+          cp -f "$HOME/Library/Logs/gym/"*.log diagnostics/ 2>/dev/null || true
+          find "$HOME/Library/Developer/Xcode/Archives" -name "*.xcdistributionlogs" -print -exec cp -R {} diagnostics/ \; 2>/dev/null || true
+          ls -la diagnostics || true
+
+      - name: Upload iOS diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-diagnostic-logs
+          path: diagnostics
+          if-no-files-found: warn
 
       - name: Upload IPA
         uses: actions/upload-artifact@v4
