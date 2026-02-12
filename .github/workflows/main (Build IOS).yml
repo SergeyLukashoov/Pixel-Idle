@@ -153,6 +153,29 @@ jobs:
           bundle exec fastlane ios beta
           #bundle exec fastlane ios build
 
+      - name: Print iOS build errors
+        if: always()
+        shell: bash
+        run: |
+          LOG="$HOME/Library/Logs/gym/PixelArcher-Unity-iPhone.log"
+          echo "Log path: $LOG"
+          if [ -f "$LOG" ]; then
+            echo "---- Key error lines ----"
+            grep -nE "error:|ARCHIVE FAILED|CompileStoryboard|Provisioning profile|Signing for|ibtool" "$LOG" | tail -n 120 || true
+            echo "---- Context near ARCHIVE FAILED ----"
+            LINE=$(grep -n "\\*\\* ARCHIVE FAILED \\*\\*" "$LOG" | tail -n1 | cut -d: -f1 || true)
+            if [ -n "$LINE" ]; then
+              START=$((LINE-80)); [ $START -lt 1 ] && START=1
+              END=$((LINE+20))
+              sed -n "${START},${END}p" "$LOG"
+            else
+              echo "ARCHIVE FAILED marker not found"
+            fi
+          else
+            echo "Gym log not found"
+            ls -la "$HOME/Library/Logs/gym" || true
+          fi
+
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
