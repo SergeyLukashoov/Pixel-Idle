@@ -97,11 +97,15 @@ platform :ios do
     sync_certificates
     list_profiles
     extension_bundle_id = ENV["IOS_NOTIFICATION_BUNDLE_ID"] || "#{ENV["IOS_BUNDLE_ID"]}.notificationservice"
-    update_app_identifier(
-      xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
-      plist_path: "notifications/Info.plist",
-      app_identifier: extension_bundle_id
-    )
+    legacy_extension_bundle_id = "#{ENV['IOS_BUNDLE_ID']}.notifications"
+    project_file = "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj/project.pbxproj"
+    if File.exist?(project_file) && legacy_extension_bundle_id != extension_bundle_id
+      project_content = File.read(project_file)
+      if project_content.include?(legacy_extension_bundle_id)
+        UI.message("Replacing legacy extension bundle id #{legacy_extension_bundle_id} with #{extension_bundle_id}")
+        File.write(project_file, project_content.gsub(legacy_extension_bundle_id, extension_bundle_id))
+      end
+    end
 
     # Unity has specific requirements around codesigning that we have to handle
     # See https://github.com/fastlane/fastlane/discussions/17458 for context
