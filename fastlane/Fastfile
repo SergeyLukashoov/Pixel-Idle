@@ -97,6 +97,11 @@ platform :ios do
     sync_certificates
     list_profiles
     extension_bundle_id = ENV["IOS_NOTIFICATION_BUNDLE_ID"] || "#{ENV["IOS_BUNDLE_ID"]}.notificationservice"
+    update_app_identifier(
+      xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
+      plist_path: "notifications/Info.plist",
+      app_identifier: extension_bundle_id
+    )
 
     # Unity has specific requirements around codesigning that we have to handle
     # See https://github.com/fastlane/fastlane/discussions/17458 for context
