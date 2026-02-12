@@ -1,5 +1,219 @@
 # Release Note
 
+### 6.2.1 (22 Nov, 2025)
+
+#### Fix
+
+* A Gradle parsing issue that prevents dummy files being added when `skipIl2CppBuild` flag is on.
+
+### 6.2.0 (15 Nov, 2025)
+
+#### Add
+
+* Container shadow support on iOS and Android. Use the new `UniWebViewShadow` struct together with `SetShadow` to render drop shadows that stay in sync with `SetRoundCornerRadius`, transforms, and rotations.
+* SSL fingerprint pinning replaces the old SSL exception list. Call `AddSslPinnedFingerprint`/`RemoveSslPinnedFingerprint` to allow self-signed or private CA certificates on both Apple and Android platforms.
+* Safe Browsing callbacks now emit structured metadata via `UniWebViewSafeBrowsingEventMetadata`. Chrome Custom Tabs report navigation started/finished/failed events, Safari view controllers forward load success/failure, and the new `OnSafeBrowsingClosed` event mirrors `OnSafeBrowsingFinished` with timestamps and native source information.
+
+#### Breaking Change
+
+* `AddSslExceptionDomain` and `RemoveSslExceptionDomain` now raise compile errors and no longer bypass TLS errors. Pin certificates explicitly with `AddSslPinnedFingerprint` instead.
+
+### 6.1.0 (27 Oct, 2025)
+
+#### Add
+
+* Round corner support. Now you can use the `SetRoundCornerRadius` APIs to add a round corner to the web view container.
+
+#### Fix
+
+* Fix an issue that a wrong brace placement in the Gradle parser. Improve the output format of the gradle files.
+
+### 6.0.0 (29 Sep, 2025)
+
+#### Add
+
+* **Channel Message System**: Introduces a revolutionary bidirectional communication system between web content and Unity. The new system provides three communication patterns:
+  - **Fire-and-Forget** (`send`): Async messages without response
+  - **Synchronous Call** (`call`): Immediate return values  
+  - **Async Request** (`request`): Promise-based responses with timeout support
+* **Enhanced Error Handling**: Structured error responses with error codes, detailed messages, and metadata for robust debugging
+* **Native XCFramework Support**: iOS distribution now uses XCFramework format with native Apple Silicon Mac simulator support, eliminating the need for architecture conversion tools
+* **Android Assets Automation**: Automated copying of configured folders to `android_asset` location during Gradle export for APK + OBB builds, removing manual copying steps
+* **Logger Performance Improvements**: Lazy evaluation internally to reduce overhead when log levels are disabled
+* **Channel Message Security Guidelines**: Comprehensive security patterns including origin validation, input sanitization, replay protection, and signature verification
+
+#### Fix
+
+* **Transparency Clicking Through Reliability**: Complete redesign using collaborative page marking instead of pixel sampling. This resolves issues with iOS 26 HDR rendering and remote layer trees where the previous implementation became unreliable
+
+#### Breaking Change
+
+::: danger
+**Transparency Clicking Through Migration Required**
+
+If you use `SetTransparencyClickingThroughEnabled(true)`, your web pages **must** be updated to mark interactive elements with `data-uv-transparency="opaque"` attribute.
+:::
+
+In short, the part that should capture web events needs to be tagged accordingly:
+
+  ```html
+  <!-- Before: All elements handled by pixel detection -->  
+  <button onclick="handleClick()">Button</button>
+  
+  <!-- After: Mark interactive elements explicitly -->
+  <button data-uv-transparency="opaque" onclick="handleClick()">Button</button>
+  ```
+
+::: danger
+**Minimum Platform Updates**:
+  - iOS minimum version increased from 9.0 to **12.0**
+  - Unity recommended versions: **2021.3.37 LTS**, **2022.3.23 LTS**, or **Unity 6 (6000.x)**
+:::
+
+#### Migration
+
+For detailed migration steps from v5 to v6, please refer to the [Migration Guide (v5 to v6)](https://docs.uniwebview.com/guide/migration-guide-v5-to-v6.html).
+
+Key migration actions:
+1. Remove UniWebView 5 files and import UniWebView 6
+2. **Update web content** with `data-uv-transparency="opaque"` attributes if using transparency clicking through
+3. Explore the new Channel Message system for enhanced communication
+
+### 5.17.5 (28 Sep, 2025)
+
+#### Fix
+
+* Fixed web view frame update issues on foldable devices. The web view now properly adjusts its frame when screen size changes without orientation change, such as when expanding or contracting a fold screen device.
+
+### 5.17.4 (15 Sep, 2025)
+
+#### Fix
+
+* Fixed Gradle parser for Unity 6000.2.0 export format. This resolves an issue where Unity's new export format was not being parsed correctly.
+* Fixed Android manifest activity-alias support. This resolves build failures when users configured activity-alias elements with launcher intents for dynamic app icon switching.
+* Fixed WebView positioning issues on Android when using Reference RectTransform with Unity's "Render Outside Safe Area" setting disabled. Added proper status bar height detection to ensure correct coordinate calculations.
+
+### 5.17.3 (22 Aug, 2025)
+
+#### Fix
+
+* Fixed Android coordinate system transformation for accurate touch position calculation across different device configurations.
+* Added fallback support for some Android devices (like Moto series) with View size limitations. This fixes an issue that web view does not display on those devices.
+* Improved compatibility with various Android screen sizes and orientations for web view positioning.
+
+### 5.17.2 (20 Aug, 2025)
+
+#### Fix
+
+* Fix an issue introduced in 5.17.1 that prevents Safe Browsing and OAuth session to receive callbacks.
+* Fix incorrect pass-through touch position calculation in some Android scenarios. Now the web view hit test works correctly when the web views are located in any places.
+* Add empty post script file to ensure back compatibility for upgrading from an earlier UniWebView version.
+
+### 5.17.1 (8 Aug, 2025)
+
+#### Fix
+
+* Fix a critical crash issue on iOS caused by race condition where native WebKit error callbacks arrive after Unity webView objects are destroyed. This resulted in null reference exceptions when you are trying to destroy the web view while an event is still on air.
+* Fix a similar race condition exception on Android platform. On Android it behaves a little difference with iOS: it does not crash the app directly, but cause a caught exception, which is still incorrect.
+
+### 5.17.0 (19 Jun, 2025)
+
+#### Add
+
+* Add `SetPreferredCustomTabsBrowsers` API for Android to allow specifying preferred browser list for SafeBrowsing and AuthenticationSession. This helps avoid browsers with incomplete Custom Tabs implementations.
+* Add `IsMainFrame` property to `UniWebViewChannelMethodHandleRequest` to indicate whether the message is from the main frame or an iframe. This property is available on iOS and Android (API 24+).
+
+### 5.16.3 (10 May, 2025)
+
+#### Fix
+
+* Fixed an error in calculating the web view's size during keyboard avoidance on Android. Now, the web view will adjust its size properly when the keyboard appears or disappears.
+
+### 5.16.2 (4 May, 2025)
+
+#### Fix
+
+* Fixed a regression issue where the `OnFileDownloadFinished` event was not triggered after a file download completed on Android.
+
+### 5.16.1 (28 Apr, 2025)
+
+#### Fix
+
+* Fix a crash that occurred when opening a new window with `SetSupportMultipleWindows` set to true on iOS and macOS Editor.
+* Improve code structure in Unity side. Now the UniWebView script is more clear and readable.
+
+### 5.16.0 (16 Apr, 2025)
+
+#### Add
+
+* Add a parameter `includeStorage` to `CleanCache` method. It allows you to clean the web view's local database when cleaning the cache. This is useful when you want to remove all the data related to the web view.
+* Now the `CleanCache` method also accepts a `completionHandler`, which is called when the cache cleaning is completed.
+
+### 5.15.0 (1 Apr, 2025)
+
+#### Add
+
+* Add a `SetTransform` method to allow setting the rotation and scale of the web view. Setting the rotation and scale will keep the web view's page content but alter the view's appearance. Check the [SetTransform](https://docs.uniwebview.com/api/#settransform) method reference and the [related guide](https://docs.uniwebview.com/guide/rotation-and-scale.html) for more information.
+* Add support for `blob:` scheme URLs. They are now automatically converted to downloadable file URLs and handled by UniWebView automatically.
+* Add a method to allow setting the maximum height of the embedded toolbar. It restricts the height of the toolbar to a value if you need a compact toolbar.
+
+#### Fix
+
+* Improve the ProGuard rules used for packaging the UniWebView Android library. Now it should not cause any duplicated class issues with other plugins which also use ProGuard.
+
+### 5.14.1 (14 Mar, 2025)
+
+#### Fix
+
+* An issue that the `UniWebViewSafeBrowsing` and `UniWebViewAuthenticationSession`'s `Create` method returns `null` values. Under the hood, both instances work correctly, but the Unity representation of them is not correctly initialized. Now these two `Create` methods will return a valid instance of the object for null-checking.
+
+### 5.14.0 (2 Mar, 2025)
+
+#### Add
+
+* Add `CopyBackForwardList` method to retrieve the complete browsing history of the web view, allowing for more advanced navigation control.
+* Add `GoToIndexInBackForwardList` method to directly navigate to any specific page in the browsing history without sequential back/forward operations.
+* Introduce `UniWebViewBackForwardList` and `UniWebViewBackForwardItem` classes to provide detailed access to navigation history items, including URLs and titles.
+
+#### Fix
+
+* Completely redesigned the loading spinner on Android with a modern, Material Design-inspired appearance, providing a more consistent visual experience with the latest Android system UI.
+* Resolved an edge case where opening a new window via JavaScript's `window.open()` without specifying a URL would fail on iOS devices.
+
+### 5.13.0 (30 Jan, 2025)
+
+#### Add
+
+* Add a new event `OnPageCommitted`. This event is raised when the web view receives response from the server and starts receiving web content. It is a earliest possible moment to start executing a JavaScript on the page.
+
+#### Fix
+
+* Now the hardware acceleration will be also enabled to other secondary activity when multiple activities are selected in Android build settings.
+
+### 5.12.0 (1 Dec, 2024)
+
+#### Add
+
+* Add action based methods to cookie operations. Now you can use the async version of these methods to manipulate cookies: `GetCookie`, `SetCookie`, `RemoveCookie`, `RemoveCookies`, `CleanCookies`. The sync version of these methods are deprecated due to it is not safe in some cases and may cause crash on new iOS versions.
+* A query item for `CustomTabsService` in AndroidManifest in the package. Now it is not required to add the query in app level manifest file anymore. 
+
+#### Fix
+
+* Some internal improvements of removing deprecated methods and variables.
+
+### 5.11.4 (15 Nov, 2024)
+
+#### Fix
+
+* An issue that some URL might be incorrectly handled when the universal link is used during the OAuth 2.0 flow.
+* Some internal improvements on project patcher when exporting the iOS and Android projects.
+
+### 5.11.3 (2 Nov, 2024)
+
+#### Fix
+
+* Use the default browser on Android as the first priority for Safe Browsing Mode. Previously, it may use another browser based on the user's setting in some cases.
+
 ### 5.11.2 (21 Sep, 2024)
 
 #### Fix
@@ -1712,5 +1926,3 @@ New: Support for location service of Android.
 ### 1.0.1 (1 Nov, 2013)
 
 Init release
-
-

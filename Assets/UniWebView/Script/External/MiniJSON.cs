@@ -37,19 +37,7 @@ namespace UniWebViewExternal {
     //
     //  using UnityEngine;
     //  using System.Collections;
-    //  using System.Collection
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //   s.Generic;
+    //  using System.Collections.Generic;
     //  using MiniJSON;
     //
     //  public class MiniJSONTest : MonoBehaviour {

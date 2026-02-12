@@ -23,6 +23,10 @@ public static class AddNotificationExtension
 #endif
         
         project.SetBuildProperty(mainTarget, "SWIFT_VERSION", "5.0");
+        project.SetBuildProperty(mainTarget, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "YES");
+        project.SetBuildProperty(mainTarget, "EMBEDDED_CONTENT_CONTAINS_SWIFT", "YES");
+        project.AddBuildProperty(mainTarget, "LD_RUNPATH_SEARCH_PATHS", "@executable_path/Frameworks");
+        project.AddBuildProperty(mainTarget, "OTHER_LDFLAGS", "-ObjC");
         project.AddFrameworkToProject(mainTarget, "UserNotifications.framework", false);
 
         string extGuid = CreateNotificationExtension(project, buildPath, mainTarget);
@@ -68,12 +72,12 @@ public static class AddNotificationExtension
             project.SetBuildProperty(extGuid, "PRODUCT_BUNDLE_IDENTIFIER",
                 PlayerSettings.GetApplicationIdentifier(BuildTargetGroup.iOS) + ".notifications");
             project.SetBuildProperty(extGuid, "SWIFT_VERSION", "5.0");
-            project.SetBuildProperty(extGuid, "IPHONEOS_DEPLOYMENT_TARGET", "12.0");
+            project.SetBuildProperty(extGuid, "ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES", "NO");
+            project.SetBuildProperty(extGuid, "IPHONEOS_DEPLOYMENT_TARGET", "15.0");
             project.SetBuildProperty(extGuid, "CODE_SIGN_STYLE", "Automatic");
             project.SetBuildProperty(extGuid, "CODE_SIGN_ENTITLEMENTS", relEntitlementsPath);
 
             project.AddTargetDependency(mainTarget, extGuid);
-            project.AddBuildProperty(mainTarget, "LD_RUNPATH_SEARCH_PATHS", "@executable_path/Frameworks");
 
             return extGuid;
     }
@@ -117,22 +121,21 @@ public static class AddNotificationExtension
         var sb = new StringBuilder();
 
         sb.AppendLine("source 'https://cdn.cocoapods.org/'");
-        sb.AppendLine("platform :ios, '13.0'");
+        sb.AppendLine("platform :ios, '15.0'");
         sb.AppendLine();
         sb.AppendLine("use_frameworks!");
         sb.AppendLine();
         sb.AppendLine("target 'UnityFramework' do");
-        sb.AppendLine("  pod 'AppsFlyerFramework', '6.15.3'");
-        sb.AppendLine("  pod 'FirebaseAnalytics', '11.10.0'");
-        sb.AppendLine("  pod 'Firebase/Messaging', '11.10.0'");
+        sb.AppendLine("  pod 'AppsFlyerFramework', '6.17.8'");
+        sb.AppendLine("  pod 'PurchaseConnector', '6.17.8'");        
+        sb.AppendLine("  pod 'FirebaseMessaging', '11.10.0'");
         sb.AppendLine("end");
         sb.AppendLine();
         sb.AppendLine("target 'Unity-iPhone' do");
         sb.AppendLine("end");
         sb.AppendLine();
         sb.AppendLine("target 'notifications' do");
-        sb.AppendLine("  pod 'FirebaseAnalytics', '11.10.0'");
-        sb.AppendLine("  pod 'Firebase/Messaging', '11.10.0'");
+        sb.AppendLine("  pod 'FirebaseMessaging', '11.10.0'");
         sb.AppendLine("end");
         
         File.WriteAllText(Path.Combine(buildPath, "Podfile"), sb.ToString());

@@ -3,7 +3,7 @@ using System.Text;
 using System;
 using UnityEngine;
 
-internal class UniWebViewAndroidXmlDocument : XmlDocument {
+public class UniWebViewAndroidXmlDocument : XmlDocument {
     private readonly string path;
     protected readonly XmlNamespaceManager nameSpaceManager;
     protected const string AndroidXmlNamespace = "http://schemas.android.com/apk/res/android";
@@ -30,7 +30,7 @@ internal class UniWebViewAndroidXmlDocument : XmlDocument {
     }
 }
 
-internal class UniWebViewAndroidManifest : UniWebViewAndroidXmlDocument {
+public class UniWebViewAndroidManifest : UniWebViewAndroidXmlDocument {
     private readonly XmlElement manifestElement;
     private readonly XmlElement applicationElement;
 
@@ -45,12 +45,72 @@ internal class UniWebViewAndroidManifest : UniWebViewAndroidXmlDocument {
         return attr;
     }
 
-    internal XmlNode GetActivityWithLaunchIntent() {
-        return
-            SelectSingleNode(
-                "/manifest/application/activity[intent-filter/action/@android:name='android.intent.action.MAIN' and "
-                + "intent-filter/category/@android:name='android.intent.category.LAUNCHER']",
-                nameSpaceManager);
+    public XmlNodeList GetActivitiesWithLaunchIntent() {
+        var processedActivities = new System.Collections.Generic.HashSet<string>();
+        var resultNodes = new System.Collections.Generic.List<XmlNode>();
+
+        // 1. Find activities with direct LAUNCHER intent
+        // XPath requires both MAIN and LAUNCHER to be in the SAME intent-filter
+        var directActivities = SelectNodes(
+            "/manifest/application/activity[intent-filter[action/@android:name='android.intent.action.MAIN' " +
+            "and category/@android:name='android.intent.category.LAUNCHER']]", nameSpaceManager
+        );
+
+        foreach (XmlNode node in directActivities) {
+            var activity = node as XmlElement;
+            if (activity != null) {
+                var name = activity.GetAttribute("name", AndroidXmlNamespace);
+                if (!string.IsNullOrEmpty(name) && !processedActivities.Contains(name)) {
+                    processedActivities.Add(name);
+                    resultNodes.Add(node);
+                }
+            }
+        }
+
+        // 2. Find activity-alias with LAUNCHER intent and add their target activities
+        // XPath requires both MAIN and LAUNCHER to be in the SAME intent-filter
+        var aliases = SelectNodes(
+            "/manifest/application/activity-alias[intent-filter[action/@android:name='android.intent.action.MAIN' " +
+            "and category/@android:name='android.intent.category.LAUNCHER']]", nameSpaceManager
+        );
+
+        foreach (XmlNode aliasNode in aliases) {
+            var alias = aliasNode as XmlElement;
+            if (alias != null) {
+                var targetActivity = alias.GetAttribute("targetActivity", AndroidXmlNamespace);
+                if (!string.IsNullOrEmpty(targetActivity) && !processedActivities.Contains(targetActivity)) {
+                    // Find the target activity
+                    var targetNode = SelectSingleNode(
+                        $"/manifest/application/activity[@android:name='{targetActivity}']", nameSpaceManager
+                    );
+                    if (targetNode != null) {
+                        processedActivities.Add(targetActivity);
+                        resultNodes.Add(targetNode);
+                    }
+                }
+            }
+        }
+
+        return new SimpleXmlNodeList(resultNodes);
+    }
+
+    // Simple XmlNodeList implementation
+    private class SimpleXmlNodeList : XmlNodeList {
+        private readonly System.Collections.Generic.List<XmlNode> nodes;
+
+        public SimpleXmlNodeList(System.Collections.Generic.List<XmlNode> nodes) {
+            this.nodes = nodes ?? new System.Collections.Generic.List<XmlNode>();
+        }
+
+        public override int Count => nodes.Count;
+
+        public override XmlNode Item(int index) {
+            return index >= 0 && index < nodes.Count ? nodes[index] : null;
+        }
+
+        public override System.Collections.IEnumerator GetEnumerator() {
+            return nodes.GetEnumerator();
+        }
     }
 
     internal bool SetUsesCleartextTraffic() {
@@ -62,20 +122,30 @@ internal class UniWebViewAndroidManifest : UniWebViewAndroidXmlDocument {
         return changed;
     }
 
-    internal bool SetHardwareAccelerated() {
+    public bool SetHardwareAccelerated() {
         var changed = false;
-        var activity = GetActivityWithLaunchIntent() as XmlElement;
-        if (activity == null)
-        {
+        var nodes = GetActivitiesWithLaunchIntent();
+        if (nodes.Count == 0) {
             Debug.LogError(
                 "There is no launch intent activity in the AndroidManifest.xml." +
                 " Please check your AndroidManifest.xml file and make sure it has a main activity with intent filter");
             return false;
         }
-        if (activity.GetAttribute("hardwareAccelerated", AndroidXmlNamespace) != "true") {
-            activity.SetAttribute("hardwareAccelerated", AndroidXmlNamespace, "true");
-            changed = true;
+
+        foreach (var node in nodes) {
+            var activity = node as XmlElement;
+            if (activity == null) {
+                Debug.LogError(
+                    "The node item is not an XmlElement: " + node);
+                continue;
+            }
+            
+            if (activity.GetAttribute("hardwareAccelerated", AndroidXmlNamespace) != "true") {
+                activity.SetAttribute("hardwareAccelerated", AndroidXmlNamespace, "true");
+                changed = true;
+            }
         }
+
         return changed;
     }
 

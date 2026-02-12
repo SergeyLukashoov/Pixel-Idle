@@ -3,15 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - SpawnPoint
-  - ObjectForSort
-  - Tutorial
-  - MapTower
-  - Mine
-  - Path
-  - ExplosiveRange
-  - GrandChest
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -20,20 +12,20 @@ TagManager:
   - Water
   - UI
   - 
-  - BackLayer
-  - GameLayer
-  - OverGameLayer
-  - MapLayer
-  - ScreensLayer
-  - 
-  - 
-  - UilLayer
-  - DialogLayer
-  - CheaterLayer
   - 
   - 
   - 
-  - GlobalFadeLayer
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -48,31 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: BackLayer
-    uniqueID: 3178148707
-    locked: 0
-  - name: GameLayer
-    uniqueID: 2771487907
-    locked: 0
-  - name: OverGameLayer
-    uniqueID: 2659614711
-    locked: 0
-  - name: MapLayer
-    uniqueID: 4085044817
-    locked: 0
-  - name: ScreensLayer
-    uniqueID: 2709177133
-    locked: 0
-  - name: UiLayer
-    uniqueID: 439807671
-    locked: 0
-  - name: DialogLayer
-    uniqueID: 3814363847
-    locked: 0
-  - name: CheaterLayer
-    uniqueID: 3907508161
-    locked: 0
-  - name: GlobalFadeLayer
-    uniqueID: 4280237687
     locked: 0

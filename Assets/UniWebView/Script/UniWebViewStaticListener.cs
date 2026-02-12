@@ -1,6 +1,16 @@
+using System.Reflection;
 using UnityEngine;
 
 public class UniWebViewStaticListener {
+    
+    public static string InvokeStaticMethod(string method, string parameters)
+    {
+        MethodInfo methodInfo = typeof(UniWebViewStaticListener)
+            .GetMethod(method, BindingFlags.Static | BindingFlags.Public);
+        var result = methodInfo.Invoke(null, new object[] { parameters });
+        return result as string;
+    }
+    
     public static void DebugLog(string value) {
         var payload = JsonUtility.FromJson<UniWebViewNativeResultPayload>(value);
         switch (payload.resultCode) {
@@ -23,5 +33,10 @@ public class UniWebViewStaticListener {
                 Debug.Log(payload.data);
                 break;
         }
+    }
+
+    public static void CookieOperation(string value) {
+        var payload = JsonUtility.FromJson<UniWebViewNativeResultPayload>(value);
+        UniWebView.InternalCookieOperation(payload);
     }
 }

@@ -20,28 +20,47 @@ public class UniWebViewGradleConfig
         var curNode = Root;
 
         var str = new StringBuilder();
+        var indentationBuffer = new StringBuilder();
         var inDoubleQuote = false;
         var inSingleQuote = false;
         var inDollarVariable = false;
+        var atLineStart = true;
 
         while (reader.Peek() > 0)
         {
             char c = (char)reader.Read();
             switch (c)
             {
-                // case '/':
-                //     if (reader.Peek() == '/')
-                //     {
-                //         reader.Read();
-                //         string comment = reader.ReadLine();
-                //         Debug.Log("Comment line: " + comment);
-                //         curNode.AppendChildNode(new UniWebViewGradleCommentNode(comment, curNode));
-                //     }
-                //     else
-                //     {
-                //         str.Append('/');
-                //     }
-                //     break;
+                case '/':
+                    {
+                        if (!inDoubleQuote && !inSingleQuote && !inDollarVariable && reader.Peek() == '/')
+                        {
+                            var raw = str.ToString();
+                            var buffered = FormatStr(str);
+                            str = new StringBuilder();
+                            reader.Read();
+                            string comment = reader.ReadLine() ?? string.Empty;
+                            if (!string.IsNullOrEmpty(buffered))
+                            {
+                                curNode.AppendChildNode(new UniWebViewGradleContentNode(buffered + " //" + comment, curNode));
+                            }
+                            else
+                            {
+                                var commentNode = new UniWebViewGradleCommentNode(comment, curNode)
+                                {
+                                    LeadingWhitespace = indentationBuffer.Length > 0 ? indentationBuffer.ToString() : ExtractLeadingWhitespace(raw)
+                                };
+                                curNode.AppendChildNode(commentNode);
+                            }
+                            indentationBuffer = new StringBuilder();
+                            inDollarVariable = false;
+                            atLineStart = false;
+                            break;
+                        }
+                        str.Append('/');
+                        atLineStart = false;
+                        break;
+                    }
                 case '\n':
                 case '\r':
                     {
@@ -53,13 +72,31 @@ public class UniWebViewGradleConfig
                     }
                     inDollarVariable = false;
                     str = new StringBuilder();
+                    indentationBuffer = new StringBuilder();
+                    atLineStart = true;
                     break;
                 case '\t':
                     {
-                        var strf = FormatStr(str);
-                        if (!string.IsNullOrEmpty(strf))
+                        if (atLineStart)
                         {
-                            str.Append(" ");
+                            indentationBuffer.Append("    ");
+                        }
+                        else
+                        {
+                            str.Append("    ");
+                            atLineStart = false;
+                        }
+                        break;
+                    }
+                case ' ':
+                    {
+                        if (atLineStart)
+                        {
+                            indentationBuffer.Append(' ');
+                        }
+                        else
+                        {
+                            str.Append(c);
                         }
                         break;
                     }
@@ -69,15 +106,21 @@ public class UniWebViewGradleConfig
                             str.Append(c);
                             break;
                         }
+                        var raw = str.ToString();
                         var n = FormatStr(str);
-                        if (!string.IsNullOrEmpty(n))
-                        {
-                            UniWebViewGradleNode node = new UniWebViewGradleNode(n, curNode);
+                        if (curNode != null) {
+                            // Create a node even when n is empty to preserve brace balance (e.g., nested blocks inside closures).
+                            var nodeName = n ?? string.Empty;
+                            UniWebViewGradleNode node = new UniWebViewGradleNode(nodeName, curNode);
+                            var leading = indentationBuffer.Length > 0 ? indentationBuffer.ToString() : ExtractLeadingWhitespace(raw);
+                            node.LeadingWhitespace = leading;
                             curNode.AppendChildNode(node);
                             curNode = node;
                         }
                     }
                     str = new StringBuilder();
+                    indentationBuffer = new StringBuilder();
+                    atLineStart = false;
                     break;
                 case '}':
                     {
@@ -90,9 +133,17 @@ public class UniWebViewGradleConfig
                         {
                             curNode.AppendChildNode(new UniWebViewGradleContentNode(strf, curNode));
                         }
-                        curNode = curNode.Parent;
+                        if (indentationBuffer.Length > 0)
+                        {
+                            curNode.ClosingWhitespace = indentationBuffer.ToString();
+                        }
+                        if (curNode.Parent != null) {
+                            curNode = curNode.Parent;
+                        }
                     }
                     str = new StringBuilder();
+                    indentationBuffer = new StringBuilder();
+                    atLineStart = false;
                     break;
                 case '\"':
                     if (inDollarVariable) {
@@ -101,6 +152,7 @@ public class UniWebViewGradleConfig
                     }
                     inDoubleQuote = !inDoubleQuote;
                     str.Append(c);
+                    atLineStart = false;
                     break;
                 case '\'':
                     if (inDollarVariable) {
@@ -109,6 +161,7 @@ public class UniWebViewGradleConfig
                     }
                     inSingleQuote = !inSingleQuote;
                     str.Append(c);
+                    atLineStart = false;
                     break;
                 case '$': 
                     {
@@ -118,10 +171,15 @@ public class UniWebViewGradleConfig
                         }
                         inDollarVariable = true;
                         str.Append(c);
+                        atLineStart = false;
                         break;
                     }
                 default:
                     str.Append(c);
+                    if (!char.IsWhiteSpace(c))
+                    {
+                        atLineStart = false;
+                    }
                     break;
             }
         }
@@ -130,7 +188,9 @@ public class UniWebViewGradleConfig
         var endline = FormatStr(str);
         if (!string.IsNullOrEmpty(endline))
         {
-            curNode.AppendChildNode(new UniWebViewGradleContentNode(endline, curNode));
+            if (curNode != null) {
+                curNode.AppendChildNode(new UniWebViewGradleContentNode(endline, curNode));
+            }
         }
         //Debug.Log("Gradle parse done!");
     }
@@ -150,34 +210,56 @@ public class UniWebViewGradleConfig
         str = str.Trim();
         return str;
     }
+
+    private static string ExtractLeadingWhitespace(string raw)
+    {
+        if (string.IsNullOrEmpty(raw)) return string.Empty;
+        var sb = new StringBuilder();
+        foreach (var ch in raw)
+        {
+            if (ch == '\t')
+            {
+                sb.Append("    ");
+            }
+            else if (ch == ' ')
+            {
+                sb.Append(' ');
+            }
+            else if (!char.IsWhiteSpace(ch))
+            {
+                break;
+            }
+        }
+        return sb.ToString();
+    }
     public string Print()
     {
         StringBuilder sb = new StringBuilder();
         PrintNode(sb, Root, -1);
         // Remove the first empty line.
         sb.Remove(0, 1);
+        if (sb.Length > 0 && sb[sb.Length - 1] == '\n')
+        {
+            sb.Remove(sb.Length - 1, 1);
+        }
         return sb.ToString();
     }
     private string GetLevelIndent(int level)
     {
         if (level <= 0) return "";
-        StringBuilder sb = new StringBuilder("");
-        for (int i = 0; i < level; i++)
-        {
-            sb.Append('\t');
-        }
-        return sb.ToString();
+        return new string(' ', level * 4);
     }
     private void PrintNode(StringBuilder stringBuilder, UniWebViewGradleNode node, int level)
     {
         if (node.Parent != null) {
+            var indent = node.LeadingWhitespace ?? GetLevelIndent(level);
             if (node is UniWebViewGradleCommentNode)
             {
-                stringBuilder.Append("\n" + GetLevelIndent(level) + @"//" + node.Name);
+                stringBuilder.Append("\n" + indent + @"//" + node.Name);
             }
             else
             {
-                stringBuilder.Append("\n" + GetLevelIndent(level) + node.Name);
+                stringBuilder.Append("\n" + indent + node.Name);
             }
 
         }
@@ -190,7 +272,8 @@ public class UniWebViewGradleConfig
             PrintNode(stringBuilder, c, level + 1);
         }
         if (node.Parent != null) {
-            stringBuilder.Append("\n" + GetLevelIndent(level) + "}");
+            var indent = node.ClosingWhitespace ?? GetLevelIndent(level);
+            stringBuilder.Append("\n" + indent + "}");
         }
     }
 }
@@ -201,6 +284,9 @@ public class UniWebViewGradleNode
     public UniWebViewGradleNode Parent { get; private set; }
 
     public string Name => m_name;
+
+    public string LeadingWhitespace { get; set; }
+    public string ClosingWhitespace { get; set; }
 
     public List<UniWebViewGradleNode> Children { get; private set; } = new List<UniWebViewGradleNode>();
 
@@ -343,4 +429,3 @@ public sealed class UniWebViewGradleCommentNode : UniWebViewGradleNode
         return m_name;
     }
 }
-

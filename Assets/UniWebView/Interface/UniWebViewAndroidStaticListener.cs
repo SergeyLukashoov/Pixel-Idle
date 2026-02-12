@@ -10,6 +10,11 @@ public class UniWebViewAndroidStaticListener: MonoBehaviour {
     }
 
     void OnJavaMessage(string message) {
+        
+        UniWebViewLogger.Instance.Verbose(
+            "Received message sent from native: " + message
+        );
+        
         // {listener_name}@{method_name}@parameters
         var parts = message.Split("@"[0]);
         if (parts.Length < 3) {
@@ -19,6 +24,16 @@ public class UniWebViewAndroidStaticListener: MonoBehaviour {
 
         var listener = UniWebViewNativeListener.GetListener(parts[0]);
         if (listener == null) {
+            return;
+        }
+        
+        // Check if the listener's host reference is null before invoking callbacks
+        // This prevents crashes when native callbacks arrive after Unity object destruction
+        if (listener.webView == null && listener.safeBrowsing == null && listener.session == null) {
+            UniWebViewLogger.Instance.Debug(
+                "Ignored message for destroyed webView. Listener: " + parts[0] + 
+                " Method: " + parts[1]
+            );
             return;
         }
         
@@ -33,7 +48,16 @@ public class UniWebViewAndroidStaticListener: MonoBehaviour {
         for (int i = 0; i < leftLength; i++) {
             left[i] = parts[i + 2];
         }
-        methodInfo.Invoke(listener, new object[] { string.Join("@", left) });
+        
+        try {
+            methodInfo.Invoke(listener, new object[] { string.Join("@", left) });
+        } catch (System.Exception e) {
+            // Additional safety: Log and ignore exceptions from destroyed objects
+            UniWebViewLogger.Instance.Critical(
+                "Exception in OnJavaMessage callback - Listener: " + parts[0] + 
+                " Method: " + parts[1] + " Error: " + e.Message
+            );
+        }
     }
 }
 
