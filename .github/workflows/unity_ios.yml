@@ -68,7 +68,7 @@ jobs:
       fail-fast: false
       matrix:
         unity-version:
-          - ${{ vars.UNITY_VERSION || '2022.3.62f3' }}
+          - ${{ vars.UNITY_VERSION || '6000.2.8f1' }}
         targetPlatform:
           - iOS
     steps:
