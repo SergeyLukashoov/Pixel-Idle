@@ -185,7 +185,9 @@ public static class AddNotificationExtension
     private static string GenerateSwiftServiceClass()
     {
         return @"import UserNotifications
+#if canImport(FirebaseMessaging)
 import FirebaseMessaging
+#endif
 
 class NotificationService: UNNotificationServiceExtension {
     var contentHandler: ((UNNotificationContent) -> Void)?
@@ -196,10 +198,14 @@ class NotificationService: UNNotificationServiceExtension {
         bestAttemptContent = request.content.mutableCopy() as? UNMutableNotificationContent
         
         guard let bestAttemptContent = bestAttemptContent else { return }
-        
+
+#if canImport(FirebaseMessaging)
         FIRMessagingExtensionHelper().populateNotificationContent(
             bestAttemptContent,
             withContentHandler: contentHandler)
+#else
+        contentHandler(bestAttemptContent)
+#endif
     }
     
     override func serviceExtensionTimeWillExpire() {

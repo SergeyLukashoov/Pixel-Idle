@@ -141,6 +141,8 @@ platform :ios do
     ios_bundle_id = ENV["IOS_BUNDLE_ID"] || ENV["BUNDLE_IDENTIFIER"]
     notifications_bundle_id = "#{ios_bundle_id}.notifications"
     is_short_build = ENV["BUILD_TYPE"].to_s.strip == "short"
+    xcode_project_path = "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj"
+    xcode_workspace_path = "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace"
 
     setup_ci
     sync_certificates
@@ -193,12 +195,10 @@ platform :ios do
      increment_version_number(version_number: version_number, xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj")
      increment_build_number({ build_number: latest_testflight_build_number(version: version_number, app_identifier: ios_bundle_id) + 1, xcodeproj: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj"}) 
     
-    # Install pods
-    #install_pods
+    # In full builds we compile the notifications extension, which depends on CocoaPods modules.
+    install_pods unless is_short_build
 
-    build_app( #alias: gym
-      #workspace: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcworkspace",
-      project: "#{ENV['IOS_BUILD_PATH']}/iOS/Unity-iPhone.xcodeproj",
+    build_app_options = {
       scheme: 'Unity-iPhone',
       xcargs: '-allowProvisioningUpdates',
       #destination: 'generic/platform=iOS' # Виправити формат
@@ -212,7 +212,13 @@ platform :ios do
         #  'com.TestCI.TestCI': 'Match AppStore com.TestCI.TestCI'
         #}
       }
-    )
+    }
+    if is_short_build
+      build_app_options[:project] = xcode_project_path
+    else
+      build_app_options[:workspace] = xcode_workspace_path
+    end
+    build_app(build_app_options)
   end
 
 end
