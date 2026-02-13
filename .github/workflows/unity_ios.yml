@@ -100,6 +100,9 @@ jobs:
             target.build_configurations.each do |config|              
               config.build_settings['VERSIONING_SYSTEM'] = 'apple-generic'
               config.build_settings['CURRENT_PROJECT_VERSION'] = ENV['LAST_UPLOADED_BUILD_NUMBER'] || '0'
+              if ['Unity-iPhone', 'notifications'].include?(target.name)
+                config.build_settings['TARGETED_DEVICE_FAMILY'] = '1,2'
+              end
               puts "#{target.name} - #{config.build_settings['VERSIONING_SYSTEM']}"
             end
           end
