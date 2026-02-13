@@ -10,6 +10,16 @@ def normalize_repo_slug(value)
   slug
 end
 
+def github_https_repo_url(value, fallback_org = nil, fallback_repo = nil)
+  slug = normalize_repo_slug(value)
+  if slug.empty? && !fallback_org.to_s.strip.empty? && !fallback_repo.to_s.strip.empty?
+    slug = "#{fallback_org}/#{fallback_repo}"
+  end
+  return "" if slug.empty?
+
+  "https://github.com/#{slug}.git"
+end
+
 match_repo_source = ENV["MATCH_REPOSITORY"] || ENV["MATCH_GIT_URL"]
 match_org, match_repo = normalize_repo_slug(match_repo_source).split("/")
 
@@ -44,10 +54,17 @@ platform :ios do
     main_app_bundle_id = ENV["IOS_BUNDLE_ID"] || ENV["BUNDLE_IDENTIFIER"]
     #extension_bundle_id = "#{ENV["IOS_BUNDLE_ID"]}.OneSignalNotificationServiceExtension"
 
+    resolved_match_git_url = github_https_repo_url(
+      ENV["MATCH_GIT_URL"] || ENV["MATCH_REPOSITORY"],
+      match_org,
+      match_repo
+    )
+    UI.user_error!("MATCH_GIT_URL or MATCH_REPOSITORY must point to a GitHub repo") if resolved_match_git_url.empty?
+
     match(
       type: "appstore",
       storage_mode: "git",
-      git_url: "git@github.com:#{match_org}/#{match_repo}.git",
+      git_url: resolved_match_git_url,
       #app_identifier: [main_app_bundle_id, extension_bundle_id],
       app_identifier: [main_app_bundle_id],
       readonly: false
