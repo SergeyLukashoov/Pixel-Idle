@@ -17,6 +17,7 @@
 
 using UnityEngine;
 using System;
+using Object = UnityEngine.Object;
 
 /// <summary>
 /// UniWebView Safe Browsing provides a way for browsing the web content in a more browser-like way, such as Safari on 
@@ -37,24 +38,79 @@ using System;
 /// external browser by using Unity's `Application.OpenURL`.
 /// 
 /// </summary>
-public class UniWebViewSafeBrowsing: UnityEngine.Object {
+public class UniWebViewSafeBrowsing {
 
     /// <summary>
     /// Delegate for safe browsing finish event.
     /// </summary>
     /// <param name="browsing">The `UniWebViewSafeBrowsing` object raised this event.</param>
     public delegate void OnSafeBrowsingFinishedDelegate(UniWebViewSafeBrowsing browsing);
+    
     /// <summary>
     /// Raised when user dismisses safe browsing by tapping the Done button or Back button.
-    /// 
-    /// The dismissed safe browsing instance will be invalid after this event being raised, and you should not use 
+    ///
+    /// The dismissed safe browsing instance will be invalid after this event being raised, and you should not use
     /// it for another browsing purpose. Instead, create a new one for a new browsing session.
-    /// 
-    /// This event will not happen in Unity Editor, because the whole `UniWebViewSafeBrowsing` will fall back to an 
+    ///
+    /// This event will not happen in Unity Editor, because the whole `UniWebViewSafeBrowsing` will fall back to an
     /// external browser.
     /// </summary>
     public event OnSafeBrowsingFinishedDelegate OnSafeBrowsingFinished;
-    
+
+    /// <summary>
+    /// Delegate for safe browsing close event with metadata payload.
+    /// </summary>
+    /// <param name="browsing">The `UniWebViewSafeBrowsing` instance that raised the event.</param>
+    /// <param name="metadata">Structured metadata describing the native callback.</param>
+    public delegate void OnSafeBrowsingClosedDelegate(UniWebViewSafeBrowsing browsing, UniWebViewSafeBrowsingEventMetadata metadata);
+
+    /// <summary>
+    /// Raised together with <see cref="OnSafeBrowsingFinished"/> but providing metadata.
+    /// </summary>
+    public event OnSafeBrowsingClosedDelegate OnSafeBrowsingClosed;
+
+    /// <summary>
+    /// Delegate for safe browsing started event.
+    /// </summary>
+    /// <param name="browsing">The `UniWebViewSafeBrowsing` object raised this event.</param>
+    /// <param name="metadata">Structured metadata describing the native callback.</param>
+    public delegate void OnSafeBrowsingNavigationStartedDelegate(UniWebViewSafeBrowsing browsing, UniWebViewSafeBrowsingEventMetadata metadata);
+
+    /// <summary>
+    /// Raised when website starts page loading in safe browsing
+    /// 
+    /// This event will not happen in Unity Editor or on iOS, because the native API does not expose a navigation-start callback there.
+    /// </summary>
+    public event OnSafeBrowsingNavigationStartedDelegate OnSafeBrowsingNavigationStarted;
+
+    /// <summary>
+    /// Delegate for safe browsing finished page loading event.
+    /// </summary>
+    /// <param name="browsing">The `UniWebViewSafeBrowsing` object raised this event.</param>
+    /// <param name="metadata">Structured metadata describing the native callback.</param>
+    public delegate void OnSafeBrowsingNavigationFinishedDelegate(UniWebViewSafeBrowsing browsing, UniWebViewSafeBrowsingEventMetadata metadata);
+
+    /// <summary>
+    /// Raised when website finishes loading in safe browsing
+    /// 
+    /// This event will not happen in Unity Editor.
+    /// </summary>
+    public event OnSafeBrowsingNavigationFinishedDelegate OnSafeBrowsingNavigationFinished;
+
+    /// <summary>
+    /// Delegate for safe browsing finished loading event.
+    /// </summary>
+    /// <param name="browsing">The `UniWebViewSafeBrowsing` object raised this event.</param>
+    /// <param name="metadata">Structured metadata describing the native callback.</param>
+    public delegate void OnSafeBrowsingNavigationFailedDelegate(UniWebViewSafeBrowsing browsing, UniWebViewSafeBrowsingEventMetadata metadata);
+
+    /// <summary>
+    /// Raised if the website errors while loading
+    /// 
+    /// This event will not happen in Unity Editor.
+    /// </summary>
+    public event OnSafeBrowsingNavigationFailedDelegate OnSafeBrowsingNavigationFailed;
+
     private string id = Guid.NewGuid().ToString();
     private UniWebViewNativeListener listener;
 
@@ -89,16 +145,48 @@ public class UniWebViewSafeBrowsing: UnityEngine.Object {
     /// </returns>
     public static bool IsSafeBrowsingSupported {
         get {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             return false;
-            #elif UNITY_IOS
+#elif UNITY_IOS
             return true;
-            #elif UNITY_ANDROID
+#elif UNITY_ANDROID
             return UniWebViewInterface.IsSafeBrowsingSupported();
-            #else
-            return false; 
-            #endif
+#else
+            return false;
+#endif
         }
+    }
+
+    /// <summary>
+    /// Sets the preferred browsers for Custom Tabs in order of preference.
+    /// This allows developers to specify which browsers should be preferred when multiple
+    /// Custom Tabs providers are available on the device.
+    /// 
+    /// This setting affects both SafeBrowsing and AuthenticationSession functionality.
+    /// 
+    /// Browser Selection Priority (Android):
+    /// 1. User-defined preferred packages (highest priority) - checked in order
+    /// 2. Default browser if it's Chromium-based (Chrome, Edge, etc.)
+    /// 3. Default browser if it supports Custom Tabs (even non-Chromium)
+    /// 4. Any Chromium-based browser (only when no user preference is set)
+    /// 5. Any available Custom Tabs provider (last resort)
+    /// 
+    /// This prioritization helps avoid browsers with incomplete Custom Tabs implementations
+    /// (such as Firefox, which may not trigger onNavigationEvent callbacks properly).
+    /// 
+    /// On iOS, this method has no effect as Safari is always used for safe browsing.
+    /// </summary>
+    /// <param name="packages">Array of browser package names in order of preference. Common package names include:
+    /// - "com.android.chrome" (Chrome)
+    /// - "com.brave.browser" (Brave Browser)
+    /// - "com.opera.browser" (Opera Browser)
+    /// - "com.microsoft.emmx" (Microsoft Edge)
+    /// - "com.sec.android.app.sbrowser" (Samsung Internet)
+    /// </param>
+    public static void SetPreferredCustomTabsBrowsers(string[] packages) {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        UniWebViewInterface.SetPreferredCustomTabsBrowsers(packages);
+#endif
     }
 
     /// <summary>
@@ -113,7 +201,7 @@ public class UniWebViewSafeBrowsing: UnityEngine.Object {
             safeBrowsing.Init(url);
         }
         safeBrowsing.url = url;
-        
+
         return safeBrowsing;
     }
 
@@ -141,9 +229,9 @@ public class UniWebViewSafeBrowsing: UnityEngine.Object {
     /// programatically as the result of the limitation from the native (Android) side.
     /// </summary>
     public void Dismiss() {
-        #if UNITY_IOS && !UNITY_EDITOR
+#if UNITY_IOS && !UNITY_EDITOR
         UniWebViewInterface.SafeBrowsingDismiss(listener.Name);
-        #endif
+#endif
     }
 
     /// <summary>
@@ -166,9 +254,9 @@ public class UniWebViewSafeBrowsing: UnityEngine.Object {
     /// </summary>
     /// <param name="color">The color to tint the controls on toolbar.</param>
     public void SetToolbarItemColor(Color color) {
-        #if UNITY_IOS && !UNITY_EDITOR
+#if UNITY_IOS && !UNITY_EDITOR
         UniWebViewInterface.SafeBrowsingSetToolbarItemColor(listener.Name, color.r, color.g, color.b);
-        #endif
+#endif
     }
 
     private UniWebViewSafeBrowsing() {
@@ -183,12 +271,53 @@ public class UniWebViewSafeBrowsing: UnityEngine.Object {
         UniWebViewInterface.SafeBrowsingInit(listener.Name, url);
     }
 
-    internal void InternalSafeBrowsingFinished() {
-        if (OnSafeBrowsingFinished != null) {
-            OnSafeBrowsingFinished(this);
+    internal void InternalSafeBrowsingEvent(string metadata) {
+        var parsed = UniWebViewSafeBrowsingEventMetadata.FromRaw(
+            metadata,
+            UniWebViewSafeBrowsingEventMetadata.EventKind.Unknown
+        );
+
+        if (!string.IsNullOrEmpty(parsed.Raw)) {
+            UniWebViewLogger.Instance.Verbose("Safe Browsing metadata (" + parsed.Kind + "): " + parsed.Raw);
         }
 
+        switch (parsed.Kind) {
+            case UniWebViewSafeBrowsingEventMetadata.EventKind.NavigationStarted:
+                if (OnSafeBrowsingNavigationStarted != null) {
+                    OnSafeBrowsingNavigationStarted(this, parsed);
+                }
+                break;
+            case UniWebViewSafeBrowsingEventMetadata.EventKind.NavigationFinished:
+                if (OnSafeBrowsingNavigationFinished != null) {
+                    OnSafeBrowsingNavigationFinished(this, parsed);
+                }
+                break;
+            case UniWebViewSafeBrowsingEventMetadata.EventKind.NavigationFailed:
+                if (OnSafeBrowsingNavigationFailed != null) {
+                    OnSafeBrowsingNavigationFailed(this, parsed);
+                }
+                break;
+            case UniWebViewSafeBrowsingEventMetadata.EventKind.TabHidden:
+                if (OnSafeBrowsingClosed != null) {
+                    OnSafeBrowsingClosed(this, parsed);
+                }
+                if (OnSafeBrowsingFinished != null) {
+                    OnSafeBrowsingFinished(this);
+                }
+                CleanupSafeBrowsing();
+                break;
+            default:
+                UniWebViewLogger.Instance.Debug("Unknown Safe Browsing event metadata: " + parsed.Raw);
+                break;
+        }
+    }
+
+    private void CleanupSafeBrowsing() {
+        if (listener == null) {
+            return;
+        }
         UniWebViewNativeListener.RemoveListener(listener.Name);
-        Destroy(listener.gameObject);
+        Object.Destroy(listener.gameObject);
+        listener = null;
     }
 }

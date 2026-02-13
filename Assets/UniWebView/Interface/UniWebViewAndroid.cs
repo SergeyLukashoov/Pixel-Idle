@@ -1,17 +1,25 @@
 #if UNITY_ANDROID && !UNITY_EDITOR
 
+using System;
 using UnityEngine;
 
-class UniWebViewMethodChannel: AndroidJavaProxy
-    {
-        public UniWebViewMethodChannel() : base("com.onevcat.uniwebview.UniWebViewNativeChannel") { }
+class UniWebViewMethodChannel: AndroidJavaProxy {
+    private const string GlobalChannelIdentifier = "__UniWebViewGlobalChannelIdentifier";
+    public UniWebViewMethodChannel() : base("com.onevcat.uniwebview.UniWebViewNativeChannel") { }
 
-        string invokeChannelMethod(string name, string method, string parameters) {
+    string invokeChannelMethod(string name, string method, string parameters) {
+        if (name == GlobalChannelIdentifier) {
+            UniWebViewLogger.Instance.Verbose(
+                "Global channel method invoked. Method: " + method + " Params: " + parameters
+            );
+            return UniWebViewStaticListener.InvokeStaticMethod(method, parameters);
+        } else {
             UniWebViewLogger.Instance.Verbose("invokeChannelMethod invoked by native side. Name: " + name + " Method: " 
-                                          + method + " Params: " + parameters);
+                                      + method + " Params: " + parameters);
             return UniWebViewChannelMethodManager.Instance.InvokeMethod(name, method, parameters);
         }
     }
+}
 
 public class UniWebViewInterface {
     private static readonly AndroidJavaClass plugin;
@@ -22,6 +30,10 @@ public class UniWebViewInterface {
         go.AddComponent<UniWebViewAndroidStaticListener>();
         plugin = new AndroidJavaClass("com.onevcat.uniwebview.UniWebViewInterface");
         
+        // Prepare dispatcher instance. Some callbacks may come from non-UI threads. Use this dispatcher to
+        // send any action to the Unity main thread.
+        _ = UniWebViewMainThreadDispatcher.Instance;
+
         CheckPlatform();
 
         plugin.CallStatic("prepare");
@@ -90,6 +102,32 @@ public class UniWebViewInterface {
         plugin.CallStatic("setSize", name, width, height);
     }
 
+    public static void SetTransform(string name, float rotation, float scaleX, float scaleY) {
+        CheckPlatform();
+        plugin.CallStatic("setTransform", name, rotation, scaleX, scaleY);
+    }
+
+    public static void SetRoundCornerRadius(string name, float topLeft, float topRight, float bottomLeft, float bottomRight) {
+        CheckPlatform();
+        plugin.CallStatic("setCornerRadius", name, topLeft, topRight, bottomLeft, bottomRight);
+    }
+
+    public static void SetShadow(
+        string name,
+        float red,
+        float green,
+        float blue,
+        float alpha,
+        float opacity,
+        float radius,
+        float offsetX,
+        float offsetY,
+        float spread
+    ) {
+        CheckPlatform();
+        plugin.CallStatic("setShadow", name, red, green, blue, alpha, opacity, radius, offsetX, offsetY, spread);
+    }
+
     public static bool Show(string name, bool fade, int edge, float duration, bool useAsync, string identifier) {
         CheckPlatform();
         if (useAsync) {
@@ -135,14 +173,26 @@ public class UniWebViewInterface {
         plugin.CallStatic("removeUrlScheme", name, scheme);
     }
 
+    [Obsolete("AddSslExceptionDomain is deprecated. Use AddSslPinnedFingerprint instead.")]
     public static void AddSslExceptionDomain(string name, string domain) {
         CheckPlatform();
         plugin.CallStatic("addSslExceptionDomain", name, domain);
     }
 
+    [Obsolete("RemoveSslExceptionDomain is deprecated. Use RemoveSslPinnedFingerprint instead.")]
     public static void RemoveSslExceptionDomain(string name, string domain) {
         CheckPlatform();
         plugin.CallStatic("removeSslExceptionDomain", name, domain);
+    }
+
+    public static void AddSslPinnedFingerprint(string name, string domain, string fingerprint) {
+        CheckPlatform();
+        plugin.CallStatic("addSslPinnedFingerprint", name, domain, fingerprint);
+    }
+
+    public static void RemoveSslPinnedFingerprint(string name, string domain, string fingerprint) {
+        CheckPlatform();
+        plugin.CallStatic("removeSslPinnedFingerprint", name, domain, fingerprint);
     }
 
     public static void AddPermissionTrustDomain(string name, string domain) {
@@ -219,9 +269,9 @@ public class UniWebViewInterface {
         plugin.CallStatic("setJavaScriptEnabled", enabled);
     }
 
-    public static void CleanCache(string name) {
+    public static void CleanCache(string name, bool includeStorage, string identifier) {
         CheckPlatform();
-        plugin.CallStatic("cleanCache", name);
+        plugin.CallStatic("cleanCache", name, includeStorage, identifier);
     }
 
     public static void SetCacheMode(string name, int mode) {
@@ -234,9 +284,19 @@ public class UniWebViewInterface {
         plugin.CallStatic("clearCookies");
     }
 
+    public static void ClearCookies(string identifier) {
+        CheckPlatform();
+        plugin.CallStatic("clearCookiesAsync", identifier);
+    }
+
     public static void SetCookie(string url, string cookie, bool skipEncoding) {
         CheckPlatform();
         plugin.CallStatic("setCookie", url, cookie);
+    }
+
+    public static void SetCookie(string url, string cookie, bool skipEncoding, string identifier) {
+        CheckPlatform();
+        plugin.CallStatic("setCookieAsync", url, cookie, identifier);
     }
 
     public static string GetCookie(string url, string key, bool skipEncoding) {
@@ -244,14 +304,29 @@ public class UniWebViewInterface {
         return plugin.CallStatic<string>("getCookie", url, key);
     }
 
+    public static void GetCookie(string url, string key, bool skipEncoding, string identifier) {
+        CheckPlatform();
+        plugin.CallStatic("getCookieAsync", url, key, identifier);
+    }
+
     public static void RemoveCookies(string url, bool skipEncoding) {
         CheckPlatform();
         plugin.CallStatic("removeCookies", url);
     }
 
+    public static void RemoveCookies(string url, bool skipEncoding, string identifier) {
+        CheckPlatform();
+        plugin.CallStatic("removeCookiesAsync", url, identifier);
+    }
+
     public static void RemoveCookie(string url, string key, bool skipEncoding) {
         CheckPlatform();
         plugin.CallStatic("removeCookie", url, key);
+    }
+
+    public static void RemoveCookie(string url, string key, bool skipEncoding, string identifier) {
+        CheckPlatform();
+        plugin.CallStatic("removeCookieAsync", url, key, identifier);
     }
 
     public static void ClearHttpAuthUsernamePassword(string host, string realm) {
@@ -368,6 +443,11 @@ public class UniWebViewInterface {
         plugin.CallStatic("setTransparencyClickingThroughEnabled", name, enabled);
     }
 
+    public static void RefreshTransparencyClickingThroughLayout(string name) {
+        CheckPlatform();
+        plugin.CallStatic("refreshTransparencyClickingThroughLayout", name);
+    }
+
     public static void SetWebContentsDebuggingEnabled(bool enabled) {
         CheckPlatform();
         plugin.CallStatic("setWebContentsDebuggingEnabled", enabled);
@@ -428,6 +508,11 @@ public class UniWebViewInterface {
         return plugin.CallStatic<float>("screenHeight");
     }
 
+    public static int GetStatusBarHeight() {
+        CheckPlatform();
+        return plugin.CallStatic<int>("getStatusBarHeight");
+    }
+
     public static void SetDownloadEventForContextMenuEnabled(string name, bool enabled) {
         CheckPlatform();
         plugin.CallStatic("setDownloadEventForContextMenuEnabled", name, enabled);
@@ -458,6 +543,11 @@ public class UniWebViewInterface {
     public static void SafeBrowsingShow(string name) {
         CheckPlatform();
         plugin.CallStatic("safeBrowsingShow", name);
+    }
+
+    public static void SetPreferredCustomTabsBrowsers(string[] packages) {
+        CheckPlatform();
+        plugin.CallStatic("setPreferredCustomTabsBrowsers", (object)packages);
     }
 
     // Authentication
@@ -532,6 +622,11 @@ public class UniWebViewInterface {
         plugin.CallStatic("setEmbeddedToolbarNavigationButtonsShow", name, show);
     }
 
+    public static void SetEmbeddedToolbarMaxHeight(string name, float height) {
+        CheckPlatform();
+        plugin.CallStatic("setEmbeddedToolbarMaxHeight", name, height);
+    }
+
     public static void StartSnapshotForRendering(string name, string identifier) {
         CheckPlatform();
         plugin.CallStatic("startSnapshotForRendering", name, identifier);
@@ -555,6 +650,16 @@ public class UniWebViewInterface {
             byteArray[i] = (byte)sbyteArray[i];
         }   
         return byteArray;
+    }
+
+    public static string CopyBackForwardList(string name) {
+        CheckPlatform();
+        return plugin.CallStatic<string>("copyBackForwardList", name);
+    }
+
+    public static void GoToIndexInBackForwardList(string listenerName, int index) {
+        CheckPlatform();
+        plugin.CallStatic("goToIndexInBackForwardList", listenerName, index);
     }
 
     // Platform

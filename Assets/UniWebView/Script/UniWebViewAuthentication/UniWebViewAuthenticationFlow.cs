@@ -161,7 +161,7 @@ public class UniWebViewAuthenticationFlow<TTokenType> {
     /// </summary>
     public void StartAuth()
     {
-        var callbackUri = new Uri(service.GetCallbackUrl());
+        callbackUri = new Uri(service.GetCallbackUrl());
         var authUrl = GetAuthUrl();
         session = UniWebViewAuthenticationSession.Create(authUrl, callbackUri.Scheme);
         var flow = service as UniWebViewAuthenticationCommonFlow;
@@ -199,11 +199,18 @@ public class UniWebViewAuthenticationFlow<TTokenType> {
     }
     
     private void HandleUniversalLink(string url) {
-        if (url.StartsWith(url, StringComparison.InvariantCultureIgnoreCase)) {
+        if (callbackUri == null)
+        {
+            UniWebViewLogger.Instance.Critical("Callback URI is not set. Skip handling universal link. Make " +
+                                               "sure you have set a correct callback URL.");
+            return;
+        }
+        
+        if (url.StartsWith(callbackUri.ToString(), StringComparison.InvariantCultureIgnoreCase)) {
             UniWebViewLogger.Instance.Verbose("HandleUniversalLink: " + url);
             Application.deepLinkActivated -= HandleUniversalLink;
             session.Cancel();
-            ExchangeToken(url);           
+            ExchangeToken(url);
         }
     }
 

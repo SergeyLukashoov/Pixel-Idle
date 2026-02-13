@@ -44,6 +44,9 @@ public class UniWebViewEditorSettings: ScriptableObject
     [SerializeField]
     internal bool supportLINELogin = false;
 
+    [SerializeField]
+    internal string[] androidAssetsFolders = { };
+
     internal static string defaultKotlinVersion = "1.6.21";
     internal static string defaultAndroidBrowserVersion = "1.2.0";
     internal static string defaultAndroidXCoreVersion = "1.5.0";
@@ -83,6 +86,7 @@ public class UniWebViewEditorSettingsReading {
     public bool enableJetifier = true;
     public string[] authCallbackUrls = { };
     public bool supportLINELogin = false;
+    public string[] androidAssetsFolders = { };
 }
 
 static class UniWebViewSettingsProvider {
@@ -186,6 +190,16 @@ static class UniWebViewSettingsProvider {
         EditorGUILayout.PropertyField(settings.FindProperty("supportLINELogin"));
         DrawDetailLabel("LINE Login is using a custom fixed scheme. If you want to support LINE Login, turn on this.");
         
+        EditorGUI.indentLevel--;
+        EditorGUILayout.EndVertical();
+
+        // Android Assets
+        EditorGUILayout.Space();
+        EditorGUILayout.BeginVertical();
+        EditorGUILayout.LabelField("Android Assets", EditorStyles.boldLabel);
+        EditorGUI.indentLevel++;
+        EditorGUILayout.PropertyField(settings.FindProperty("androidAssetsFolders"), true);
+        DrawDetailLabel("Asset folders to copy to Android assets (relative to Assets directory). Leave empty to disable.");
         EditorGUI.indentLevel--;
         EditorGUILayout.EndVertical();
 
