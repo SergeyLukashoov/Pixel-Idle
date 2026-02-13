@@ -137,6 +137,14 @@ public static class AddNotificationExtension
         sb.AppendLine("target 'notifications' do");
         sb.AppendLine("  pod 'FirebaseMessaging', '11.10.0'");
         sb.AppendLine("end");
+        sb.AppendLine();
+        sb.AppendLine("post_install do |installer|");
+        sb.AppendLine("  installer.pods_project.targets.each do |target|");
+        sb.AppendLine("    target.build_configurations.each do |config|");
+        sb.AppendLine("      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'");
+        sb.AppendLine("    end");
+        sb.AppendLine("  end");
+        sb.AppendLine("end");
         
         File.WriteAllText(Path.Combine(buildPath, "Podfile"), sb.ToString());
         File.WriteAllText(Path.Combine(buildPath, "podfile_ready"), "ok");
