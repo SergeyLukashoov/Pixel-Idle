@@ -80,7 +80,17 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
-     
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Verify selected Xcode
+        run: |
+          xcodebuild -version
+          xcode-select -p
+
       - name: Setup xcode versioning system
         run: |
           ruby <<'RUBY'
@@ -98,15 +108,9 @@ jobs:
 
       - name: Install agvtool
         run: |
-          sudo xcode-select --switch /Applications/Xcode.app
           sudo xcodebuild -license accept
           which agvtool || echo 'agvtool not found, but should be available with Xcode.'
           agvtool help || echo 'agvtool installed.'
-
-      - name: Set up Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: ${{ vars.XCODE_VERSION || '16.4.0' }}
         
       - name: Set up ruby env
         uses: ruby/setup-ruby@v1.269.0
